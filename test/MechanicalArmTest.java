@@ -48,5 +48,12 @@ public class MechanicalArmTest {
         controlador.ingresarCajas(26);
     }
 
+    @Test
+    public void SeCrearonLasCajasCorrectamente()
+    {
+        //Without implementation
+        assertTrue(false);
+    }
+
 
 }
