@@ -11,7 +11,7 @@ import java.util.Stack;
  *
  * @author Rolo
  */
-public class ArmController {
+public class BrazoMecanico {
 
     private Stack<Integer> [] cajas;
     private int numeroDeCajas = 0;
@@ -20,7 +20,7 @@ public class ArmController {
         return numeroDeCajas;
     }
 
-    public void ingresarCajas(int numeroDeCajas) {
+    public void crearPosiciones(int numeroDeCajas) {
         if (numeroDeCajas > 0 && numeroDeCajas <= 25) {
             this.numeroDeCajas = numeroDeCajas;
             cajas = new Stack [this.numeroDeCajas];
