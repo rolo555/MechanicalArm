@@ -11,16 +11,16 @@ import java.util.Stack;
  *
  * @author Rolo
  */
-public class ArmController {
+public class ConjuntoBloques {
 
     private Stack<Integer> [] cajas;
     private int numeroDeCajas = 0;
 
-    public int numeroDeCajas() {
+    public int numeroDePosiciones() {
         return numeroDeCajas;
     }
 
-    public void ingresarCajas(int numeroDeCajas) {
+    public void ingresarPosiciones(int numeroDeCajas) {
         if (numeroDeCajas > 0 && numeroDeCajas <= 25) {
             this.numeroDeCajas = numeroDeCajas;
             cajas = new Stack [this.numeroDeCajas];
@@ -33,7 +33,7 @@ public class ArmController {
         }
     }
 
-    public void posicionarCaja(int valor, int posicion) {
+    public void posicionarBloque(int valor, int posicion) {
         if (posicion < this.numeroDeCajas) {
             cajas[posicion].push(valor);
         } else {
@@ -41,7 +41,7 @@ public class ArmController {
         }
     }
 
-    public int retornarCaja(int posicion) {
+    public int retornarValorBloque(int posicion) {
         if(cajas[posicion].empty())
         {
             return -1;
@@ -52,7 +52,7 @@ public class ArmController {
         }
     }
 
-    public void quitarCaja(int posicion) {
+    public void quitarBloque(int posicion) {
         if (posicion < this.numeroDeCajas) {
             cajas[posicion].pop();
         } else {
@@ -60,7 +60,7 @@ public class ArmController {
         }
     }
 
-    public int numeroCajasApiladas(int posicion) {
+    public int numeroBloquesApilados(int posicion) {
         return cajas[posicion].size();
     }
 }
