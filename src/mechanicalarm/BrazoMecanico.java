@@ -13,54 +13,54 @@ import java.util.Stack;
  */
 public class BrazoMecanico {
 
-    private Stack<Integer> [] cajas;
-    private int numeroDeCajas = 0;
+    private Stack<Integer> [] bloques;
+    private int numeroDeBloques = 0;
 
-    public int numeroDeCajas() {
-        return numeroDeCajas;
+    public int numeroDeBloques() {
+        return numeroDeBloques;
     }
 
-    public void crearPosiciones(int numeroDeCajas) {
-        if (numeroDeCajas > 0 && numeroDeCajas <= 25) {
-            this.numeroDeCajas = numeroDeCajas;
-            cajas = new Stack [this.numeroDeCajas];
-            for (int i = 0; i < this.numeroDeCajas; ++i) {
-                cajas[i] = new Stack<Integer>();
-                cajas[i].push(i);
+    public void crearPosiciones(int numeroDeBloques) {
+        if (numeroDeBloques > 0 && numeroDeBloques <= 25) {
+            this.numeroDeBloques = numeroDeBloques;
+            bloques = new Stack [this.numeroDeBloques];
+            for (int i = 0; i < this.numeroDeBloques; ++i) {
+                bloques[i] = new Stack<Integer>();
+                bloques[i].push(i);
             }
         } else {
-            throw new IllegalStateException("El numero de cajas tiene que ser mayor a 0 y menor a 26.");
+            throw new IllegalStateException("El numero de bloques tiene que ser mayor a 0 y menor a 26.");
         }
     }
 
-    public void posicionarCaja(int valor, int posicion) {
-        if (posicion < this.numeroDeCajas) {
-            cajas[posicion].push(valor);
+    public void posicionarBloque(int valor, int posicion) {
+        if (posicion < this.numeroDeBloques) {
+            bloques[posicion].push(valor);
         } else {
             throw new IllegalArgumentException("La posicion destino no existe");
         }
     }
 
-    public int retornarCaja(int posicion) {
-        if(cajas[posicion].empty())
+    public int mostrarUltimoBloqueApilado(int posicion) {
+        if(bloques[posicion].empty())
         {
             return -1;
         }
         else
         {
-            return cajas[posicion].peek();
+            return bloques[posicion].peek();
         }
     }
 
-    public void quitarCaja(int posicion) {
-        if (posicion < this.numeroDeCajas) {
-            cajas[posicion].pop();
+    public void quitarUltimoBloqueApilado(int posicion) {
+        if (posicion < this.numeroDeBloques) {
+            bloques[posicion].pop();
         } else {
             throw new IllegalArgumentException("La posicion requerida no existe");
         }
     }
 
-    public int numeroCajasApiladas(int posicion) {
-        return cajas[posicion].size();
+    public int numeroBloquesApilados(int posicion) {
+        return bloques[posicion].size();
     }
 }

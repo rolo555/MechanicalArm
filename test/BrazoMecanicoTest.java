@@ -26,78 +26,78 @@ public class BrazoMecanicoTest {
     }
 
     @Test
-    public void nuevoTieneCeroNumeroDeCajas(){
-        assertEquals(0, brazo.numeroDeCajas());
+    public void nuevoTieneCeroNumeroDeBloques(){
+        assertEquals(0, brazo.numeroDeBloques());
     }
 
     @Test
-    public void alIngresarNumeroDeCajasElNumeroDeCajasNoEsCero(){
+    public void alIngresarNumeroDeBloquesElNumeroDeBloquesNoEsCero(){
         brazo.crearPosiciones(1);
-        assertNotSame(0, brazo.numeroDeCajas());
+        assertNotSame(0, brazo.numeroDeBloques());
     }
 
     @Test
-    public void alIngresarNumeroXDeCajasElNumeroDeCajasEsIgualAX(){
+    public void alIngresarNumeroXDeBloquesElNumeroDeBloquesEsIgualAX(){
         brazo.crearPosiciones(5);
-        assertEquals(5, brazo.numeroDeCajas());
+        assertEquals(5, brazo.numeroDeBloques());
     }
 
     @Test (expected = IllegalStateException.class)
-    public void elNumeroDeCajasEsMayorACeroYMenorOIgualA25(){
+    public void elNumeroDeBloquesEsMayorACeroYMenorOIgualA25(){
         brazo.crearPosiciones(0);
         brazo.crearPosiciones(26);
     }
 
     @Test
-    public void lasCajasSeCreanDeManeraAscendenteYEnLasPosicionesCorrectas()
+    public void losBloquesSeCreanDeManeraAscendenteYEnLasPosicionesCorrectas()
     {
         brazo.crearPosiciones(10);
         for(int i=0; i<10; ++i)
         {
-            int actual = brazo.retornarCaja(i);
+            int actual = brazo.mostrarUltimoBloqueApilado(i);
             assertEquals(i, actual);
         }
     }
 
     @Test
-    public void seQuitoUnaCajaDeUnaPosicionDadaValida()
+    public void esPosibleQuitarUnBloqueDeUnaPosicionDadaValida()
     {
         brazo.crearPosiciones(10);
-        brazo.quitarCaja(4);
-        int actual = brazo.retornarCaja(4);
+        brazo.quitarUltimoBloqueApilado(4);
+        int actual = brazo.mostrarUltimoBloqueApilado(4);
         assertEquals(-1,actual);
     }
 
     @Test (expected = IllegalArgumentException.class )
-    public void SeQuitoUnaCajaDeUnaPosicionDadaInvalida()
+    public void noSePuedeQuitarUnBloqueDeUnaPosicionDadaInvalida()
     {
         brazo.crearPosiciones(10);
-        brazo.quitarCaja(11);
+        brazo.quitarUltimoBloqueApilado(11);
     }
 
     @Test
-    public void sePosicionoLaCajaEnElLugarCorrectoValido()
+    public void esPosibleMoverUnBloqueAUnaPosicionDadaValida()
     {
         brazo.crearPosiciones(10);
-        brazo.posicionarCaja(5, 0);
-        int actualCaja = brazo.retornarCaja(0);
+        brazo.posicionarBloque(5, 0);
+        int actualCaja = brazo.mostrarUltimoBloqueApilado(0);
         int expect = 5;
         assertEquals(expect, actualCaja);
     }
 
     @Test (expected=IllegalArgumentException.class)
-    public void sePosicionoLaCajaEnUnLugarInvalido()
+    public void noEsPosibleMoverUnBloqueAUnaPosicionDadaInvalida()
     {
         brazo.crearPosiciones(10);
-        brazo.posicionarCaja(5, 11);
+        brazo.posicionarBloque(5, 11);
     }
 
     @Test
-    public void alPosicionarUnaCajaEnUnLugarYaOcupadoElNumeroCajasEnEsaPosicionNoEsUno()
+    public void alPosicionarUnBloqueEnUnLugarYaOcupadoElNumeroDeBloquesEnEsaPosicionAumentaUno()
     {
         brazo.crearPosiciones(10);
-        brazo.posicionarCaja(5, 4);
-        int actual = brazo.numeroCajasApiladas(4);
+        brazo.posicionarBloque(5, 4);
+        int actual = brazo.numeroBloquesApilados(4);
         assertNotSame(1, actual);
     }
 
@@ -105,10 +105,10 @@ public class BrazoMecanicoTest {
     public void alPosicionarVariasCajasEnUnLugarYaOcupadoElNumeroDeCajasEsIgualALaCantidadDeCajasPosicionadas()
     {
         brazo.crearPosiciones(10);
-        brazo.posicionarCaja(5, 4);
-        brazo.posicionarCaja(3, 4);
-        brazo.posicionarCaja(6,4);
-        int actual = brazo.numeroCajasApiladas(4);
+        brazo.posicionarBloque(5, 4);
+        brazo.posicionarBloque(3, 4);
+        brazo.posicionarBloque(6,4);
+        int actual = brazo.numeroBloquesApilados(4);
         int expect = 4;
         assertEquals(expect, actual);
     }
