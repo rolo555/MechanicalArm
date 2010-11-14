@@ -96,9 +96,10 @@ public class BrazoMecanicoTest {
     public void alPosicionarUnBloqueEnUnLugarYaOcupadoElNumeroDeBloquesEnEsaPosicionAumentaUno()
     {
         brazo.crearPosiciones(10);
-        brazo.posicionarBloque(5, 4);
         int actual = brazo.numeroBloquesApilados(4);
-        assertNotSame(1, actual);
+        brazo.posicionarBloque(5, 4);
+        int expect = actual + 1;
+        assertEquals(expect, brazo.numeroBloquesApilados(4));
     }
 
     @Test
