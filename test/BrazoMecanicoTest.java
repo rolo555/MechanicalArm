@@ -122,6 +122,10 @@ public class BrazoMecanicoTest {
         assertEquals(expect, brazo.buscarBloque(bloqueX));
     }
 
-
-
+    @Test (expected=IllegalArgumentException.class)
+    public void noSePuedeBuscarUnBloqueInvalido(){
+        brazo.crearPosiciones(5);
+//        brazo.buscarBloque(5);
+        brazo.buscarBloque(0);
+    }
 }
