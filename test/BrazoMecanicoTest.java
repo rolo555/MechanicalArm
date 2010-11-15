@@ -136,4 +136,16 @@ public class BrazoMecanicoTest {
         int expect = 0;
         assertEquals(expect, brazo.buscarPosicionDeBloque(3));
     }
+
+    @Test
+    public void esPosibleCalcularElNumeroDeBloquesApiladosSobreElBloqueX(){
+        brazo.crearPosiciones(5);
+        brazo.posicionarBloque(1, 0);
+        brazo.posicionarBloque(2, 0);
+        brazo.posicionarBloque(3, 0);
+        brazo.posicionarBloque(4, 0);
+        int expect = 3;
+        assertEquals(expect, brazo.calcularNumeroDeBloquesApiladosSobre(1));
+    }
+
 }
