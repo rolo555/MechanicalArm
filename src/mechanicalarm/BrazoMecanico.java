@@ -6,14 +6,13 @@ package mechanicalarm;
 
 import java.util.Stack;
 
-
 /**
  *
  * @author Rolo
  */
 public class BrazoMecanico {
 
-    private Stack<Integer> [] bloques;
+    private Stack<Integer>[] bloques;
     private int numeroDeBloques = 0;
 
     public int numeroDeBloques() {
@@ -23,7 +22,7 @@ public class BrazoMecanico {
     public void crearPosiciones(int numeroDeBloques) {
         if (numeroDeBloques > 0 && numeroDeBloques <= 25) {
             this.numeroDeBloques = numeroDeBloques;
-            bloques = new Stack [this.numeroDeBloques];
+            bloques = new Stack[this.numeroDeBloques];
             for (int i = 0; i < this.numeroDeBloques; ++i) {
                 bloques[i] = new Stack<Integer>();
                 bloques[i].push(i);
@@ -42,12 +41,9 @@ public class BrazoMecanico {
     }
 
     public int mostrarUltimoBloqueApilado(int posicion) {
-        if(bloques[posicion].empty())
-        {
+        if (bloques[posicion].empty()) {
             return -1;
-        }
-        else
-        {
+        } else {
             return bloques[posicion].peek();
         }
     }
@@ -65,10 +61,10 @@ public class BrazoMecanico {
     }
 
     public int buscarPosicionDeBloque(int bloque) {
-        if( bloque < this.numeroDeBloques && bloque >= 0 ){
+        if (bloque < this.numeroDeBloques && bloque >= 0) {
             int resp = -1;
-            for (int i= 0; i < this.numeroDeBloques && resp == -1; i++) {
-                if( this.bloques[i].search(bloque) != -1 ){
+            for (int i = 0; i < this.numeroDeBloques && resp == -1; i++) {
+                if (this.bloques[i].search(bloque) != -1) {
                     resp = i;
                 }
             }
@@ -79,8 +75,13 @@ public class BrazoMecanico {
     }
 
     public int calcularNumeroDeBloquesApiladosSobre(int bloque) {
-        int posicion = this.buscarPosicionDeBloque(bloque);
-        int numeroDeBloquesApiladosSobreBloque = this.bloques[posicion].search(bloque)-1;
-        return numeroDeBloquesApiladosSobreBloque;
+        if (bloque < this.numeroDeBloques && bloque >= 0) {
+            int posicion = this.buscarPosicionDeBloque(bloque);
+            int numeroDeBloquesApiladosSobreBloque = this.bloques[posicion].search(bloque) - 1;
+            return numeroDeBloquesApiladosSobreBloque;
+        } else {
+            throw new IllegalArgumentException("Ese bloque no existe.");
+        }
     }
+
 }
