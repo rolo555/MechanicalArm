@@ -84,4 +84,8 @@ public class BrazoMecanico {
         }
     }
 
+    public void popPosXAPosY(int posX, int posY) {
+        this.bloques[posY].push(this.bloques[posX].pop());
+    }
+
 }
