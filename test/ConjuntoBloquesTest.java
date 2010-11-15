@@ -202,4 +202,17 @@ public class ConjuntoBloquesTest {
         assertEquals(-1, brazo.mostrarUltimoBloqueApilado(2));
     }
 
+    @Test
+    public void alApilarBloqueAEnBloqueBPrimeroDevuelveTodosLosBloquesApiladosEnElBloqueBASuPosicionOriginalLuegoMueveElBloqueAJuntoConTodosLosBloquesSobreEsteAlBloqueB(){
+        brazo.crearPosiciones(4);
+        brazo.popPosXAPosY(1, 0);
+        brazo.popPosXAPosY(2, 3);
+        brazo.apilarBloqueAEnBloqueB(0, 3);
+        assertEquals(-1, brazo.mostrarUltimoBloqueApilado(0));
+        assertEquals(-1, brazo.mostrarUltimoBloqueApilado(1));
+        assertEquals(2, brazo.mostrarUltimoBloqueApilado(2));
+        assertEquals(0, brazo.mostrarUltimoBloqueApilado(3));
+        assertEquals(3, brazo.buscarPosicionDeBloque(0));
+    }
+
 }

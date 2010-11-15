@@ -118,7 +118,26 @@ public class ConjuntoBloques {
 
     public void moverBloqueASobreBloqueB(int bloqueA, int bloqueB) {
         this.devolverBloquesApiladosASusPosicionesOriginalesDeUnBloqueDado(bloqueA);
-        int posicionDeBloqueA = this.buscarPosicionDeBloque(bloqueB);
         this.popPosXAPosY(bloqueA, bloqueB);
+    }
+
+    public void apilarBloqueAEnBloqueB(int bloqueA, int bloqueB) {
+        int posBloqueB = this.buscarPosicionDeBloque(bloqueB);
+        this.devolverBloquesApiladosASusPosicionesOriginalesDeUnBloqueDado(bloqueB);
+        Stack<Integer> auxiliar = this.apilarBloquesAPilaAuxiliarDadoUnBloque(bloqueA);
+        for (int i= 0; i < auxiliar.size(); i++) {
+            this.bloques[posBloqueB].push(auxiliar.pop());
+        }
+    }
+
+    private Stack<Integer> apilarBloquesAPilaAuxiliarDadoUnBloque(int bloqueA) {
+        Stack<Integer> auxiliar = new Stack();
+        int posBloqueA = this.buscarPosicionDeBloque(bloqueA);
+        int bloque;
+        do{
+            bloque = this.bloques[posBloqueA].pop();
+            auxiliar.push(bloque);
+        }while( bloque != bloqueA );
+        return auxiliar;
     }
 }
