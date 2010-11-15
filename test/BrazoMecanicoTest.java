@@ -89,21 +89,17 @@ public class BrazoMecanicoTest {
     @Test
     public void alPosicionarUnBloqueEnUnLugarYaOcupadoElNumeroDeBloquesEnEsaPosicionAumentaUno() {
         brazo.crearPosiciones(10);
-        int actual = brazo.numeroBloquesApilados(4);
         brazo.posicionarBloque(5, 4);
-        int expect = actual + 1;
-        assertEquals(expect, brazo.numeroBloquesApilados(4));
+        assertEquals(2, brazo.numeroBloquesApilados(4));
     }
 
     @Test
     public void alPosicionarVariosBloquesEnUnLugarYaOcupadoElNumeroDeBloquesEsIgualALaCantidadDeBloquesOcupadosMasLosRecienPosicionados() {
         brazo.crearPosiciones(10);
-        int actual = brazo.numeroBloquesApilados(4);
         brazo.posicionarBloque(5, 4);
         brazo.posicionarBloque(3, 4);
         brazo.posicionarBloque(6, 4);
-        int expect = actual + 3;
-        assertEquals(expect, brazo.numeroBloquesApilados(4));
+        assertEquals(4, brazo.numeroBloquesApilados(4));
     }
 
     @Test
