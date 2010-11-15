@@ -114,6 +114,14 @@ public class BrazoMecanicoTest {
         assertEquals(expect, brazo.numeroBloquesApilados(4));
     }
 
+    @Test
+    public void alBuscarLaPosicionDelBloqueXEnPosicionesNuevaEsteSeEncuentraEnXMenosUno(){
+        brazo.crearPosiciones(5);
+        int bloqueX = 3;
+        int expect = bloqueX - 1;
+        assertEquals(expect, brazo.buscarBloque(bloqueX));
+    }
+
 
 
 }

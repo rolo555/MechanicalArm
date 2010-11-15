@@ -63,4 +63,8 @@ public class BrazoMecanico {
     public int numeroBloquesApilados(int posicion) {
         return bloques[posicion].size();
     }
+
+    public int buscarBloque(int bloque) {
+        return bloque - 1;
+    }
 }
