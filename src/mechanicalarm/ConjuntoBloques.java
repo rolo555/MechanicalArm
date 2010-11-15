@@ -103,7 +103,7 @@ public class ConjuntoBloques {
 
     public void devolverBloquesApiladosASusPosicionesOriginalesDeUnBloqueDado(int bloque) {
         int posicion = this.buscarPosicionDeBloque(bloque);
-        while( this.mostrarUltimoBloqueApilado(posicion) != bloque ){
+        while (this.mostrarUltimoBloqueApilado(posicion) != bloque) {
             this.devolverBloqueAPosicionOriginal(posicion);
         }
     }
@@ -125,7 +125,8 @@ public class ConjuntoBloques {
         int posBloqueB = this.buscarPosicionDeBloque(bloqueB);
         this.devolverBloquesApiladosASusPosicionesOriginalesDeUnBloqueDado(bloqueB);
         Stack<Integer> auxiliar = this.apilarBloquesAPilaAuxiliarDadoUnBloque(bloqueA);
-        for (int i= 0; i < auxiliar.size(); i++) {
+        int tamanioAuxiliar = auxiliar.size();
+        for (int i = 0; i < tamanioAuxiliar; i++) {
             this.bloques[posBloqueB].push(auxiliar.pop());
         }
     }
@@ -134,10 +135,19 @@ public class ConjuntoBloques {
         Stack<Integer> auxiliar = new Stack();
         int posBloqueA = this.buscarPosicionDeBloque(bloqueA);
         int bloque;
-        do{
+        do {
             bloque = this.bloques[posBloqueA].pop();
             auxiliar.push(bloque);
-        }while( bloque != bloqueA );
+        } while (bloque != bloqueA);
         return auxiliar;
+    }
+
+    public void apilarBloqueASobreBloqueB(int bloqueA, int bloqueB) {
+        Stack<Integer> auxiliar = this.apilarBloquesAPilaAuxiliarDadoUnBloque(bloqueA);
+        int posBloqueB = this.buscarPosicionDeBloque(bloqueB);
+        int tamanioAuxiliar = auxiliar.size();
+        for (int i = 0; i < tamanioAuxiliar; i++) {
+            this.bloques[posBloqueB].push(auxiliar.pop());
+        }
     }
 }

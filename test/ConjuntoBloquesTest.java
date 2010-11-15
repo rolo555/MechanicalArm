@@ -154,13 +154,13 @@ public class ConjuntoBloquesTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void noEsPosibleLlamarALaFuncionPopPosXAPosYConPosicionesInvalidas(){
+    public void noEsPosibleLlamarALaFuncionPopPosXAPosYConPosicionesInvalidas() {
         brazo.crearPosiciones(2);
         brazo.popPosXAPosY(3, -2);
     }
 
     @Test
-    public void devolverBloqueASuPosicionOriginalDeUnaPosicionDada(){
+    public void devolverBloqueASuPosicionOriginalDeUnaPosicionDada() {
         brazo.crearPosiciones(4);
         brazo.popPosXAPosY(1, 0);
         brazo.devolverBloqueAPosicionOriginal(0);
@@ -168,7 +168,7 @@ public class ConjuntoBloquesTest {
     }
 
     @Test
-    public void devolverTodosLosBloquesASusPosicionesOriginalesDeUnBloqueDado(){
+    public void devolverTodosLosBloquesASusPosicionesOriginalesDeUnBloqueDado() {
         brazo.crearPosiciones(4);
         brazo.popPosXAPosY(1, 0);
         brazo.popPosXAPosY(2, 0);
@@ -180,7 +180,7 @@ public class ConjuntoBloquesTest {
     }
 
     @Test
-    public void alMoverBloqueAEnBloqueBPrimeroDevolvemosTodosLosBloquesSobreElBloqueAYBloqueBYLuegoMovemosBloqueASobreBloqueB(){
+    public void alMoverBloqueAEnBloqueBPrimeroDevolvemosTodosLosBloquesSobreElBloqueAYBloqueBYLuegoMovemosBloqueASobreBloqueB() {
         brazo.crearPosiciones(4);
         brazo.popPosXAPosY(1, 0);
         brazo.popPosXAPosY(2, 3);
@@ -191,7 +191,7 @@ public class ConjuntoBloquesTest {
     }
 
     @Test
-    public void alMoverBloqueASobreBloqueBPrimeroDevolvemosTodosLosBloquesSobreElBloqueAYLueboMovemosBloqueAALaPosicionDondeSeEncuentraElBloqueB(){
+    public void alMoverBloqueASobreBloqueBPrimeroDevolvemosTodosLosBloquesSobreElBloqueAYLueboMovemosBloqueAALaPosicionDondeSeEncuentraElBloqueB() {
         brazo.crearPosiciones(4);
         brazo.popPosXAPosY(1, 0);
         brazo.popPosXAPosY(2, 3);
@@ -203,7 +203,7 @@ public class ConjuntoBloquesTest {
     }
 
     @Test
-    public void alApilarBloqueAEnBloqueBPrimeroDevuelveTodosLosBloquesApiladosEnElBloqueBASuPosicionOriginalLuegoMueveElBloqueAJuntoConTodosLosBloquesSobreEsteAlBloqueB(){
+    public void alApilarBloqueAEnBloqueBPrimeroDevuelveTodosLosBloquesApiladosEnElBloqueBASuPosicionOriginalLuegoMueveElBloqueAJuntoConTodosLosBloquesSobreEsteAlBloqueB() {
         brazo.crearPosiciones(4);
         brazo.popPosXAPosY(1, 0);
         brazo.popPosXAPosY(2, 3);
@@ -211,8 +211,24 @@ public class ConjuntoBloquesTest {
         assertEquals(-1, brazo.mostrarUltimoBloqueApilado(0));
         assertEquals(-1, brazo.mostrarUltimoBloqueApilado(1));
         assertEquals(2, brazo.mostrarUltimoBloqueApilado(2));
-        assertEquals(0, brazo.mostrarUltimoBloqueApilado(3));
+        assertEquals(1, brazo.mostrarUltimoBloqueApilado(3));
         assertEquals(3, brazo.buscarPosicionDeBloque(0));
     }
 
+    @Test
+    public void alApilarBloqueASobreBloqueBMueveTodosLosBloquesQueSeEncuentranSobreElBloqueAIncluyendoloSobreTodosLosBloquesDondeSeEncuentreB() {
+        brazo.crearPosiciones(4);
+        brazo.popPosXAPosY(1, 0);
+        brazo.popPosXAPosY(2, 3);
+        brazo.apilarBloqueASobreBloqueB(0, 3);
+        assertEquals(-1, brazo.mostrarUltimoBloqueApilado(0));
+        assertEquals(-1, brazo.mostrarUltimoBloqueApilado(1));
+        assertEquals(-1, brazo.mostrarUltimoBloqueApilado(2));
+        assertEquals(1, brazo.mostrarUltimoBloqueApilado(3));
+        assertEquals(3, brazo.buscarPosicionDeBloque(0));
+        assertEquals(3, brazo.buscarPosicionDeBloque(1));
+        assertEquals(3, brazo.buscarPosicionDeBloque(2));
+        assertEquals(3, brazo.buscarPosicionDeBloque(3));
+
+    }
 }
