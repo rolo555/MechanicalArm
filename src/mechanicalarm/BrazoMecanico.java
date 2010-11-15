@@ -77,4 +77,10 @@ public class BrazoMecanico {
             throw new IllegalArgumentException("Ese bloque no existe.");
         }
     }
+
+    public int calcularNumeroDeBloquesApiladosSobre(int bloque) {
+        int posicion = this.buscarPosicionDeBloque(bloque);
+        int numeroDeBloquesApiladosSobreBloque = this.bloques[posicion].search(bloque)-1;
+        return numeroDeBloquesApiladosSobreBloque;
+    }
 }
