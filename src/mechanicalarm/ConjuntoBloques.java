@@ -10,7 +10,7 @@ import java.util.Stack;
  *
  * @author Rolo
  */
-public class BrazoMecanico {
+public class ConjuntoBloques {
 
     private Stack<Integer>[] bloques;
     private int numeroDeBloques = 0;

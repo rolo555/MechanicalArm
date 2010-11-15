@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="REN" name="MechanicalArmTest" tests="11" time="0.094" timestamp="2010-11-10T12:01:00">
+<testsuite errors="0" failures="0" hostname="REN" name="ConjuntoBloquesTest" tests="11" time="0.102" timestamp="2010-11-12T02:55:31">
   <properties>
     <property name="netbeans.autoupdate.country" value="US" />
     <property name="javac.test.classpath" value=":build/classes:C:\Program Files\NetBeans 6.8\platform11\modules\ext\junit-4.5.jar" />
@@ -407,17 +407,17 @@
     <property name="platform.active" value="default_platform" />
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
   </properties>
-  <testcase classname="MechanicalArmTest" name="nuevoTieneCeroNumeroDeCajas" time="0.015" />
-  <testcase classname="MechanicalArmTest" name="alIngresarNumeroDeCajasElNumeroDeCajasNoEsCero" time="0.0" />
-  <testcase classname="MechanicalArmTest" name="alIngresarNumeroXDeCajasElNumeroDeCajasEsIgualAX" time="0.0" />
-  <testcase classname="MechanicalArmTest" name="elNumeroDeCajasEsMayorACeroYMenorOIgualA25" time="0.0" />
-  <testcase classname="MechanicalArmTest" name="lasCajasSeCreanDeManeraAscendenteYEnLasPosicionesCorrectas" time="0.0" />
-  <testcase classname="MechanicalArmTest" name="seQuitoUnaCajaDeUnaPosicionDadaValida" time="0.0" />
-  <testcase classname="MechanicalArmTest" name="SeQuitoUnaCajaDeUnaPosicionDadaInvalida" time="0.016" />
-  <testcase classname="MechanicalArmTest" name="sePosicionoLaCajaEnElLugarCorrectoValido" time="0.0" />
-  <testcase classname="MechanicalArmTest" name="sePosicionoLaCajaEnUnLugarInvalido" time="0.0" />
-  <testcase classname="MechanicalArmTest" name="alPosicionarUnaCajaEnUnLugarYaOcupadoElNumeroCajasEnEsaPosicionNoEsUno" time="0.0" />
-  <testcase classname="MechanicalArmTest" name="alPosicionarVariasCajasEnUnLugarYaOcupadoElNumeroDeCajasEsIgualALaCantidadDeCajasPosicionadas" time="0.0" />
+  <testcase classname="ConjuntoBloquesTest" name="nuevoTieneCeroNumeroDePosiciones" time="0.0050" />
+  <testcase classname="ConjuntoBloquesTest" name="alIngresarNumeroDePosicionesElNumeroDePosicionesNoEsCero" time="0.0010" />
+  <testcase classname="ConjuntoBloquesTest" name="alIngresarNumeroDePosicionesElNumeroDePosicionesEsIgualAlIngresado" time="0.0" />
+  <testcase classname="ConjuntoBloquesTest" name="elNumeroDePosicionesEsMayorACeroYMenorOIgualA25" time="0.0010" />
+  <testcase classname="ConjuntoBloquesTest" name="losBloquesSeCreanDeManeraAscendenteYEnLasPosicionesCorrectas" time="0.0010" />
+  <testcase classname="ConjuntoBloquesTest" name="seQuitoUnBloqueDeUnaPosicionDadaValida" time="0.0010" />
+  <testcase classname="ConjuntoBloquesTest" name="SeQuitoUnBloqueDeUnaPosicionDadaInvalida" time="0.0" />
+  <testcase classname="ConjuntoBloquesTest" name="sePosicionoElBloqueEnElLugarCorrectoValido" time="0.0" />
+  <testcase classname="ConjuntoBloquesTest" name="sePosicionoElBloqueEnUnLugarInvalido" time="0.0010" />
+  <testcase classname="ConjuntoBloquesTest" name="alPosicionarUnBloqueEnUnLugarYaOcupadoElNumeroBloquesEnEsaPosicionNoEsUno" time="0.0" />
+  <testcase classname="ConjuntoBloquesTest" name="alPosicionarVariosBloquesEnUnLugarYaOcupadoElNumeroDeBloquesEsIgualALaCantidadDeBloquesPosicionadas" time="0.0" />
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

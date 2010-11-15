@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="REN" name="BrazoMecanicoTest" tests="11" time="0.094" timestamp="2010-11-10T12:05:53">
+<testsuite errors="0" failures="0" hostname="REN" name="BrazoMecanicoControladorTest" tests="5" time="0.073" timestamp="2010-11-12T02:55:31">
   <properties>
     <property name="netbeans.autoupdate.country" value="US" />
     <property name="javac.test.classpath" value=":build/classes:C:\Program Files\NetBeans 6.8\platform11\modules\ext\junit-4.5.jar" />
@@ -407,17 +407,11 @@
     <property name="platform.active" value="default_platform" />
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
   </properties>
-  <testcase classname="BrazoMecanicoTest" name="nuevoTieneCeroNumeroDeCajas" time="0.0" />
-  <testcase classname="BrazoMecanicoTest" name="alIngresarNumeroDeCajasElNumeroDeCajasNoEsCero" time="0.0" />
-  <testcase classname="BrazoMecanicoTest" name="alIngresarNumeroXDeCajasElNumeroDeCajasEsIgualAX" time="0.0" />
-  <testcase classname="BrazoMecanicoTest" name="elNumeroDeCajasEsMayorACeroYMenorOIgualA25" time="0.0" />
-  <testcase classname="BrazoMecanicoTest" name="lasCajasSeCreanDeManeraAscendenteYEnLasPosicionesCorrectas" time="0.0" />
-  <testcase classname="BrazoMecanicoTest" name="seQuitoUnaCajaDeUnaPosicionDadaValida" time="0.0" />
-  <testcase classname="BrazoMecanicoTest" name="SeQuitoUnaCajaDeUnaPosicionDadaInvalida" time="0.0" />
-  <testcase classname="BrazoMecanicoTest" name="sePosicionoLaCajaEnElLugarCorrectoValido" time="0.0" />
-  <testcase classname="BrazoMecanicoTest" name="sePosicionoLaCajaEnUnLugarInvalido" time="0.0" />
-  <testcase classname="BrazoMecanicoTest" name="alPosicionarUnaCajaEnUnLugarYaOcupadoElNumeroCajasEnEsaPosicionNoEsUno" time="0.0" />
-  <testcase classname="BrazoMecanicoTest" name="alPosicionarVariasCajasEnUnLugarYaOcupadoElNumeroDeCajasEsIgualALaCantidadDeCajasPosicionadas" time="0.0" />
+  <testcase classname="BrazoMecanicoControladorTest" name="AlCrearElBrazoMecanicoNoTieneComandos" time="0.0040" />
+  <testcase classname="BrazoMecanicoControladorTest" name="AlIngresarUnComandoElNumeroDeComnadosNoEsCero" time="0.0010" />
+  <testcase classname="BrazoMecanicoControladorTest" name="AlIngresarVariosComandosElNumeroDeComandosEsIgualAlNumeroIngresado" time="0.0" />
+  <testcase classname="BrazoMecanicoControladorTest" name="AlIngresarUnComandoEsteEsIngresadoCorrectamente" time="0.0" />
+  <testcase classname="BrazoMecanicoControladorTest" name="AlIngresarVariosComandosEstoSeIngresanCorrectamente" time="0.0" />
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

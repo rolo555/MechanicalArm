@@ -3,8 +3,9 @@
  * and open the template in the editor.
  */
 
+import mechanicalarm.ConjuntoBloques;
 import java.lang.IllegalStateException;
-import mechanicalarm.BrazoMecanico;
+import mechanicalarm.BrazoMecanicoControlador;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -16,13 +17,13 @@ import static org.junit.Assert.*;
  *
  * @author Rolo
  */
-public class BrazoMecanicoTest {
+public class ConjuntoBloquesTest {
 
-    private BrazoMecanico brazo;
+    private ConjuntoBloques brazo;
 
     @Before
     public void setUp() {
-        brazo = new BrazoMecanico();
+        brazo = new ConjuntoBloques();
     }
 
     @Test
@@ -157,7 +158,4 @@ public class BrazoMecanicoTest {
         brazo.crearPosiciones(2);
         brazo.popPosXAPosY(3, -2);
     }
-
-
-
 }
