@@ -3,8 +3,9 @@
  * and open the template in the editor.
  */
 
-import java.lang.IllegalStateException;
 import mechanicalarm.ConjuntoBloques;
+import java.lang.IllegalStateException;
+import mechanicalarm.BrazoMecanicoControlador;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -18,101 +19,143 @@ import static org.junit.Assert.*;
  */
 public class ConjuntoBloquesTest {
 
-    private ConjuntoBloques bloques;
+    private ConjuntoBloques brazo;
 
     @Before
-    public void setUp(){
-        bloques = new ConjuntoBloques();
+    public void setUp() {
+        brazo = new ConjuntoBloques();
     }
 
     @Test
-    public void nuevoTieneCeroNumeroDePosiciones(){
-        assertEquals(0, bloques.numeroDePosiciones());
+    public void nuevoTieneCeroNumeroDeBloques() {
+        assertEquals(0, brazo.numeroDeBloques());
     }
 
     @Test
-    public void alIngresarNumeroDePosicionesElNumeroDePosicionesNoEsCero(){
-        bloques.ingresarPosiciones(1);
-        assertNotSame(0, bloques.numeroDePosiciones());
+    public void alIngresarNumeroDeBloquesElNumeroDeBloquesNoEsCero() {
+        brazo.crearPosiciones(1);
+        assertNotSame(0, brazo.numeroDeBloques());
     }
 
     @Test
-    public void alIngresarNumeroDePosicionesElNumeroDePosicionesEsIgualAlIngresado(){
-        bloques.ingresarPosiciones(5);
-        assertEquals(5, bloques.numeroDePosiciones());
+    public void alIngresarNumeroXDeBloquesElNumeroDeBloquesEsIgualAX() {
+        brazo.crearPosiciones(5);
+        assertEquals(5, brazo.numeroDeBloques());
     }
 
-    @Test (expected = IllegalStateException.class)
-    public void elNumeroDePosicionesEsMayorACeroYMenorOIgualA25(){
-        bloques.ingresarPosiciones(0);
-        bloques.ingresarPosiciones(26);
+    @Test(expected = IllegalStateException.class)
+    public void elNumeroDeBloquesEsMayorACeroYMenorOIgualA25() {
+        brazo.crearPosiciones(0);
+        brazo.crearPosiciones(26);
     }
 
     @Test
-    public void losBloquesSeCreanDeManeraAscendenteYEnLasPosicionesCorrectas()
-    {
-        bloques.ingresarPosiciones(10);
-        for(int i=0; i<10; ++i)
-        {
-            int actual = bloques.retornarValorBloque(i);
+    public void losBloquesSeCreanDeManeraAscendenteYEnLasPosicionesCorrectas() {
+        brazo.crearPosiciones(10);
+        for (int i = 0; i < 10; ++i) {
+            int actual = brazo.mostrarUltimoBloqueApilado(i);
             assertEquals(i, actual);
         }
     }
 
     @Test
-    public void seQuitoUnBloqueDeUnaPosicionDadaValida()
-    {
-        bloques.ingresarPosiciones(10);
-        bloques.quitarBloque(4);
-        int actual = bloques.retornarValorBloque(4);
-        assertEquals(-1,actual);
+    public void esPosibleQuitarUnBloqueDeUnaPosicionDadaValida() {
+        brazo.crearPosiciones(10);
+        brazo.quitarUltimoBloqueApilado(4);
+        int actual = brazo.mostrarUltimoBloqueApilado(4);
+        assertEquals(-1, actual);
     }
 
-    @Test (expected = IllegalArgumentException.class )
-    public void SeQuitoUnBloqueDeUnaPosicionDadaInvalida()
-    {
-        bloques.ingresarPosiciones(10);
-        bloques.quitarBloque(11);
+    @Test(expected = IllegalArgumentException.class)
+    public void noSePuedeQuitarUnBloqueDeUnaPosicionDadaInvalida() {
+        brazo.crearPosiciones(10);
+        brazo.quitarUltimoBloqueApilado(11);
     }
 
     @Test
-    public void sePosicionoElBloqueEnElLugarCorrectoValido()
-    {
-        bloques.ingresarPosiciones(10);
-        bloques.posicionarBloque(5, 0);
-        int actualCaja = bloques.retornarValorBloque(0);
+    public void esPosibleMoverUnBloqueAUnaPosicionDadaValida() {
+        brazo.crearPosiciones(10);
+        brazo.posicionarBloque(5, 0);
+        int actualCaja = brazo.mostrarUltimoBloqueApilado(0);
         int expect = 5;
         assertEquals(expect, actualCaja);
     }
 
-    @Test (expected=IllegalArgumentException.class)
-    public void sePosicionoElBloqueEnUnLugarInvalido()
-    {
-        bloques.ingresarPosiciones(10);
-        bloques.posicionarBloque(5, 11);
+    @Test(expected = IllegalArgumentException.class)
+    public void noEsPosibleMoverUnBloqueAUnaPosicionDadaInvalida() {
+        brazo.crearPosiciones(10);
+        brazo.posicionarBloque(5, 11);
     }
 
     @Test
-    public void alPosicionarUnBloqueEnUnLugarYaOcupadoElNumeroBloquesEnEsaPosicionNoEsUno()
-    {
-        bloques.ingresarPosiciones(10);
-        bloques.posicionarBloque(5, 4);
-        int actual = bloques.numeroBloquesApilados(4);
-        assertNotSame(1, actual);
+    public void alPosicionarUnBloqueEnUnLugarYaOcupadoElNumeroDeBloquesEnEsaPosicionAumentaUno() {
+        brazo.crearPosiciones(10);
+        brazo.posicionarBloque(5, 4);
+        assertEquals(2, brazo.numeroBloquesApilados(4));
     }
 
     @Test
-    public void alPosicionarVariosBloquesEnUnLugarYaOcupadoElNumeroDeBloquesEsIgualALaCantidadDeBloquesPosicionadas()
-    {
-        bloques.ingresarPosiciones(10);
-        bloques.posicionarBloque(5, 4);
-        bloques.posicionarBloque(3, 4);
-        bloques.posicionarBloque(6,4);
-        int actual = bloques.numeroBloquesApilados(4);
-        int expect = 4;
-        assertEquals(expect, actual);
+    public void alPosicionarVariosBloquesEnUnLugarYaOcupadoElNumeroDeBloquesEsIgualALaCantidadDeBloquesOcupadosMasLosRecienPosicionados() {
+        brazo.crearPosiciones(10);
+        brazo.posicionarBloque(5, 4);
+        brazo.posicionarBloque(3, 4);
+        brazo.posicionarBloque(6, 4);
+        assertEquals(4, brazo.numeroBloquesApilados(4));
     }
 
+    @Test
+    public void alBuscarLaPosicionDelBloqueXEnPosicionesNuevaEsteSeEncuentraEnX() {
+        brazo.crearPosiciones(5);
+        int bloqueX = 3;
+        int expect = bloqueX;
+        assertEquals(expect, brazo.buscarPosicionDeBloque(bloqueX));
+    }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void noSePuedeBuscarUnBloqueInvalido() {
+        brazo.crearPosiciones(5);
+        brazo.buscarPosicionDeBloque(5);
+        brazo.buscarPosicionDeBloque(-1);
+    }
 
+    @Test
+    public void esPosibleBuscarLaPosicionDeUnBloqeQueFueMovido() {
+        brazo.crearPosiciones(5);
+        brazo.posicionarBloque(3, 0);
+        int expect = 0;
+        assertEquals(expect, brazo.buscarPosicionDeBloque(3));
+    }
+
+    @Test
+    public void esPosibleCalcularElNumeroDeBloquesApiladosSobreElBloqueX() {
+        brazo.crearPosiciones(5);
+        brazo.posicionarBloque(1, 0);
+        brazo.posicionarBloque(2, 0);
+        brazo.posicionarBloque(3, 0);
+        brazo.posicionarBloque(4, 0);
+        int expect = 3;
+        assertEquals(expect, brazo.calcularNumeroDeBloquesApiladosSobre(1));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void noEsPosibleCalcularElNumeroDeBloquesApiladosSobreUnBloqueXNoExistene() {
+        brazo.crearPosiciones(5);
+        brazo.calcularNumeroDeBloquesApiladosSobre(5);
+    }
+
+    @Test
+    public void alLlamarALaFuncionPopPosXAPosYSoloSeMueveElUltimoBloqueApiladoEnLaPosicionXALaPosicionY() {
+        brazo.crearPosiciones(2);
+        int unexpected = brazo.mostrarUltimoBloqueApilado(1);
+        brazo.popPosXAPosY(0, 1);
+        int expected = brazo.mostrarUltimoBloqueApilado(1);
+        assertNotSame(unexpected, brazo.mostrarUltimoBloqueApilado(1));
+        assertEquals(expected, brazo.mostrarUltimoBloqueApilado(1));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void noEsPosibleLlamarALaFuncionPopPosXAPosYConPosicionesInvalidas(){
+        brazo.crearPosiciones(2);
+        brazo.popPosXAPosY(3, -2);
+    }
 }
