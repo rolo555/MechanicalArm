@@ -154,5 +154,14 @@ public class BrazoMecanicoTest {
         brazo.calcularNumeroDeBloquesApiladosSobre(5);
     }
 
+    @Test
+    public void alLlamarALaFuncionPopPosXAPosYSoloSeMueveElUltimoBloqueApiladoEnLaPosicionXALaPosicionY(){
+        brazo.crearPosiciones(2);
+        int unexpected = brazo.mostrarUltimoBloqueApilado(1);
+        brazo.popPosXAPosY( 0, 1);
+        int expected = brazo.mostrarUltimoBloqueApilado(1);
+        assertNotSame(unexpected, brazo.mostrarUltimoBloqueApilado(1));
+        assertEquals(expected, brazo.mostrarUltimoBloqueApilado(1));
+    }
 
 }
