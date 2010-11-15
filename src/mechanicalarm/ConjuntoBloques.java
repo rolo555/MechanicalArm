@@ -95,4 +95,30 @@ public class ConjuntoBloques {
             throw new IllegalArgumentException("posX invalido.");
         }
     }
+
+    public void devolverBloqueAPosicionOriginal(int posicion) {
+        int posOrigen = this.mostrarUltimoBloqueApilado(posicion);
+        this.popPosXAPosY(posicion, posOrigen);
+    }
+
+    public void devolverBloquesApiladosASusPosicionesOriginalesDeUnBloqueDado(int bloque) {
+        int posicion = this.buscarPosicionDeBloque(bloque);
+        while( this.mostrarUltimoBloqueApilado(posicion) != bloque ){
+            this.devolverBloqueAPosicionOriginal(posicion);
+        }
+    }
+
+    public void moverBloqueAEnBloqueB(int bloqueA, int bloqueB) {
+        this.devolverBloquesApiladosASusPosicionesOriginalesDeUnBloqueDado(bloqueA);
+        this.devolverBloquesApiladosASusPosicionesOriginalesDeUnBloqueDado(bloqueB);
+        int posicionDeBloqueA = this.buscarPosicionDeBloque(bloqueA);
+        int posicionDeBloqueB = this.buscarPosicionDeBloque(bloqueB);
+        this.popPosXAPosY(bloqueA, bloqueB);
+    }
+
+    public void moverBloqueASobreBloqueB(int bloqueA, int bloqueB) {
+        this.devolverBloquesApiladosASusPosicionesOriginalesDeUnBloqueDado(bloqueA);
+        int posicionDeBloqueA = this.buscarPosicionDeBloque(bloqueB);
+        this.popPosXAPosY(bloqueA, bloqueB);
+    }
 }
