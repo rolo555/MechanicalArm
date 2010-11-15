@@ -64,9 +64,15 @@ public class BrazoMecanico {
         return bloques[posicion].size();
     }
 
-    public int buscarBloque(int bloque) {
+    public int buscarPosicionDeBloque(int bloque) {
         if( bloque < this.numeroDeBloques && bloque >= 0 ){
-            return bloque - 1;
+            int resp = -1;
+            for (int i= 0; i < this.numeroDeBloques && resp == -1; i++) {
+                if( this.bloques[i].search(bloque) != -1 ){
+                    resp = i;
+                }
+            }
+            return resp;
         } else {
             throw new IllegalArgumentException("Ese bloque no existe.");
         }

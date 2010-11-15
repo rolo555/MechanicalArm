@@ -115,17 +115,25 @@ public class BrazoMecanicoTest {
     }
 
     @Test
-    public void alBuscarLaPosicionDelBloqueXEnPosicionesNuevaEsteSeEncuentraEnXMenosUno(){
+    public void alBuscarLaPosicionDelBloqueXEnPosicionesNuevaEsteSeEncuentraEnX(){
         brazo.crearPosiciones(5);
         int bloqueX = 3;
-        int expect = bloqueX - 1;
-        assertEquals(expect, brazo.buscarBloque(bloqueX));
+        int expect = bloqueX;
+        assertEquals(expect, brazo.buscarPosicionDeBloque(bloqueX));
     }
 
     @Test (expected=IllegalArgumentException.class)
     public void noSePuedeBuscarUnBloqueInvalido(){
         brazo.crearPosiciones(5);
-//        brazo.buscarBloque(5);
-        brazo.buscarBloque(0);
+        brazo.buscarPosicionDeBloque(5);
+        brazo.buscarPosicionDeBloque(-1);
+    }
+
+    @Test
+    public void esPosibleBuscarLaPosicionDeUnBloqeQueFueMovido(){
+        brazo.crearPosiciones(5);
+        brazo.posicionarBloque(3, 0);
+        int expect = 0;
+        assertEquals(expect, brazo.buscarPosicionDeBloque(3));
     }
 }
