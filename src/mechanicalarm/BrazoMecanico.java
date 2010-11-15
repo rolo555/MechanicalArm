@@ -85,7 +85,14 @@ public class BrazoMecanico {
     }
 
     public void popPosXAPosY(int posX, int posY) {
-        this.bloques[posY].push(this.bloques[posX].pop());
+        if (posX < this.numeroDeBloques && posX >= 0) {
+            if (posY < this.numeroDeBloques && posY >= 0) {
+                this.bloques[posY].push(this.bloques[posX].pop());
+            } else {
+                throw new IllegalArgumentException("posY invalido.");
+            }
+        } else {
+            throw new IllegalArgumentException("posX invalido.");
+        }
     }
-
 }
