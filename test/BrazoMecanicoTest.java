@@ -148,4 +148,11 @@ public class BrazoMecanicoTest {
         assertEquals(expect, brazo.calcularNumeroDeBloquesApiladosSobre(1));
     }
 
+    @Test (expected=IllegalArgumentException.class)
+    public void noEsPosibleCalcularElNumeroDeBloquesApiladosSobreUnBloqueXNoExistene(){
+        brazo.crearPosiciones(5);
+        brazo.calcularNumeroDeBloquesApiladosSobre(5);
+    }
+
+
 }
