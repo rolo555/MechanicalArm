@@ -1,4 +1,3 @@
-
 package mechanicalarm;
 
 import java.util.ArrayList;
@@ -14,11 +13,9 @@ public class BrazoMecanicoControlador {
     /**
      * Atributos privados de la clase BrazoMecanicoControlador
      */
-
     private List<Comando> listaComandos;
     private int indiceComandoActual;
     private ConjuntoBloques bloques;
-
 
     /**
      * Constructor vacio de la clase BrazoMecanicoControlador
@@ -29,6 +26,7 @@ public class BrazoMecanicoControlador {
         listaComandos = new ArrayList<Comando>();
         indiceComandoActual = 0;
     }
+
     /**
      * Indica el numero de comandos que contiene la lista de comandos
      * @return el tamaño de la lista "listaComandos"
@@ -36,6 +34,7 @@ public class BrazoMecanicoControlador {
     public int numeroComandos() {
         return listaComandos.size();
     }
+
     /**
      * Funcion que recibe un string y lo convierte a un comando:
      * [comandoApilarEn, comandoApilarSobre, ComandoInvalido, ComandoMoverEn, ComandoMoverSobre o ComandoSalir],
@@ -66,27 +65,34 @@ public class BrazoMecanicoControlador {
             return false;
         }
     }
+
     /**
      * Funcion que regresa el comando en forma de string que se encuentra en la posicion dada de la lista de comandos
      * @param posicion de la lista de comandos
      * @return el comando en forma de string
      */
-
     public String retornarComando(int posicion) {
         return listaComandos.get(posicion).TransformarEnString();
     }
+
     /**
-     * Funcino que indica si el indice de comandos se encuentra dentro de la lista de comandos o en el comando "Salir"
+     * Funcino que indica si la lista de comandos esta vacia o el indice de comandos se encuentra dentro de la lista de comandos o en el comando "Salir"
      * @return "true" si el indice se encuntre dentro de la lista de comandos "false"  en otro caso
      */
     public boolean existeComando() {
-        if(listaComandos.get(indiceComandoActual) instanceof ComandoSalir )
+        if (!listaComandos.isEmpty()) {
+            if (listaComandos.get(indiceComandoActual) instanceof ComandoSalir) {
+                return false;
+            } else if (indiceComandoActual < listaComandos.size()) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
             return false;
-        else if (indiceComandoActual < listaComandos.size())
-            return true;
-        else
-            return false;
+        }
     }
+
     /**
      * Funcion que ejecuta el comando que se encuentra en la lista de comandos indicada por el indice de comando actual
      */
@@ -99,6 +105,7 @@ public class BrazoMecanicoControlador {
             ++indiceComandoActual;
         }
     }
+
     /**
      * Funcion que retorna todos los bloques apilados en una posicion dada
      * @param la posicion del cual se quiere saber los bloques apilados
@@ -107,6 +114,7 @@ public class BrazoMecanicoControlador {
     public List<Integer> retornarBloquesDeUnaPosicion(int posicion) {
         return bloques.retornarBloquesDeUnaPosicion(posicion);
     }
+
     /**
      * Funcion que crea un nuevo conjunto de bloques con la cantidad de posiciones dada
      * @param numero de posiciones que se desa que tenga el conjunto de bloques
@@ -115,6 +123,7 @@ public class BrazoMecanicoControlador {
         bloques = new ConjuntoBloques();
         bloques.crearPosiciones(numeroPosiciones);
     }
+
     /**
      * Funcion que retorna todo el conjunto de bloques.
      * @return el conjunto de bloques con sus respectivos bloques apilados.
