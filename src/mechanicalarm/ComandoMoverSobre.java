@@ -23,9 +23,8 @@ public class ComandoMoverSobre extends Comando {
         int posicionBloqueInicial = bloques.buscarPosicionDeBloque(bloqueInicial);
         int posicionBloqueFinal = bloques.buscarPosicionDeBloque(bloqueFinal);
         int numeroBloquesSobreBloqueInicial = bloques.calcularNumeroDeBloquesApiladosSobre(bloqueInicial);
-        int numeroBloquesSobreBloqueFinal = bloques.calcularNumeroDeBloquesApiladosSobre(bloqueFinal);
 
-        if (posicionBloqueInicial != posicionBloqueFinal) {
+        if (bloqueInicial != bloqueFinal) {
             if (bloqueInicial >= 0 && bloqueInicial < bloques.numeroDeBloques() && bloqueFinal >= 0 && bloqueFinal < bloques.numeroDeBloques()) {
                 for (int i = 0; i < numeroBloquesSobreBloqueInicial; ++i) {
                     bloques.retornarUltimoBloqueApiladoASuPosicionOriginal(posicionBloqueInicial);
@@ -36,7 +35,7 @@ public class ComandoMoverSobre extends Comando {
                 throw new IllegalArgumentException("Comando invalido (no existen suficientes bloques para ejecutar el comando)");
             }
         } else {
-            throw new IllegalArgumentException("Comando invalido (los bloques inicial y final se ubican en la misma posicion)");
+            throw new IllegalArgumentException("Comando invalido (los bloques inicial y final son el mismo)");
         }
     }
 }
