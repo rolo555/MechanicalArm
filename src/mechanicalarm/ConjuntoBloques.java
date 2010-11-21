@@ -4,6 +4,7 @@
  */
 package mechanicalarm;
 
+import java.util.List;
 import java.util.Stack;
 
 /**
@@ -95,4 +96,23 @@ public class ConjuntoBloques {
             throw new IllegalArgumentException("posX invalido.");
         }
     }
+    
+    public void retornarUltimoBloqueApiladoASuPosicionOriginal(int posicion)
+    {
+        if(posicion>=0 && posicion<this.numeroDeBloques)
+        {
+            int ultimoBloqueApilado = this.bloques[posicion].pop();
+            int posicionOriginal = ultimoBloqueApilado;
+            this.bloques[posicionOriginal].push(ultimoBloqueApilado);
+        }
+        else
+        {
+            throw new IllegalArgumentException("La posicion es invalida");
+        }
+    }
+
+    public List<Integer> retornarBloquesDeUnaPosicion(int i) {
+        return bloques[i].subList(0,bloques[i].size() );
+    }
+
 }
