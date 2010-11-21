@@ -40,6 +40,7 @@ public class Main {
         String comando;
         int numeroDePos;
         int indiceComando;
+        String numeroDePosStr;
         BrazoMecanicoControlador brazoMecanico = new BrazoMecanicoControlador();
         do {
             System.out.println(" ------------------------------------------");
@@ -51,11 +52,12 @@ public class Main {
             System.out.println(" ------------------------------------------");
             System.out.print("Seleccione una opcion: ");
             opcion = in.nextInt();
+            brazoMecanico = new BrazoMecanicoControlador();
             switch (opcion) {
                 case 1:
                     System.out.println("Por defecto se lee el archivo \"comandos.txt\" en la direccion \"C:\" ");
                     Scanner scanner = new Scanner(new FileInputStream("c:\\comandos.txt"));
-                    String numeroDePosStr = scanner.nextLine();
+                    numeroDePosStr = scanner.nextLine();
                     numeroDePos = Integer.parseInt(numeroDePosStr);
                     brazoMecanico.ingresarNumeroPosiciones(numeroDePos);
                     while (scanner.hasNext()) {
@@ -77,30 +79,40 @@ public class Main {
                     break;
                 case 2:
                     System.out.print("Ingrese el numero de bloques: ");
-                    numeroDePos = in.nextInt();
-                    brazoMecanico.ingresarNumeroPosiciones(numeroDePos);
-                    String s;
-                    System.out.println("Ingrese los comando: ");
-                    do {
-                        s = in.nextLine();
-                        s = s.toLowerCase();
-                        brazoMecanico.ingresarComando(s);
-                    } while (!s.equals("salir"));
-                    indiceComando = 0;
-                    while (brazoMecanico.existeSiguienteComando()) {
-                        System.out.println(brazoMecanico.retornarComando(indiceComando));
-                        try {
-                            brazoMecanico.ejecutarSiguienteComando();
-                        } catch (Exception exp) {
-                            System.out.println(exp.getMessage());
+                    numeroDePosStr = in.next();
+                    try {
+                        numeroDePos = Integer.valueOf(numeroDePosStr);
+                        if (numeroDePos > 0 && numeroDePos <= 25) {
+                            brazoMecanico.ingresarNumeroPosiciones(numeroDePos);
+                            String s;
+                            System.out.println("Ingrese los comando: ");
+                            do {
+                                s = in.nextLine();
+                                s = s.toLowerCase();
+                                brazoMecanico.ingresarComando(s);
+                            } while (!s.equals("salir"));
+                            indiceComando = 0;
+                            while (brazoMecanico.existeSiguienteComando()) {
+                                System.out.println(brazoMecanico.retornarComando(indiceComando));
+                                try {
+                                    brazoMecanico.ejecutarSiguienteComando();
+                                } catch (Exception exp) {
+                                    System.out.println(exp.getMessage());
+                                }
+                                System.out.println(mostrarMovimiento(brazoMecanico.retornarTodosLosBloques()));
+                                indiceComando++;
+                            }
+                        } else {
+                            System.out.println("Numero de bloques invalido!!!");
                         }
-                        System.out.println(mostrarMovimiento(brazoMecanico.retornarTodosLosBloques()));
-                        indiceComando++;
+                    } catch (Exception e) {
+                        System.out.println("Numero de bloques invalido!!!");
                     }
                     break;
                 default:
                     System.out.println("Hasta luego!!!!!");
             }
+
         } while (opcion != 3);
 
 
