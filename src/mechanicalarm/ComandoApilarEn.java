@@ -1,30 +1,35 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package mechanicalarm;
 
 import java.util.Stack;
 
 /**
  *
- * @author FireHunter
+ * @author Ismael Rolando, Lopez Jhenier
  */
 public class ComandoApilarEn extends Comando {
-
+    /**
+     * Constructor de ComandoApilarEn que recibe el valor del bloque inicial y el valor del bloque final que se desean ser apilados
+     * @param bloqueInicial el valor del bloque que se desea ser apilado
+     * @param bloqueFinal el valor del bloque al cual se desea apilar todo los bloques apilados en el bloque inicial (incluyendo al bloque inicial)
+     */
     public ComandoApilarEn(int bloqueInicial, int bloqueFinal) {
         this.bloqueFinal = bloqueFinal;
         this.bloqueInicial = bloqueInicial;
     }
-
+    /**
+     * Funcion que que retorna el comando en forma de string
+     * @return el comando en forma de string
+     */
     public String TransformarEnString() {
         return "Apilar " + String.valueOf(bloqueInicial) + " en " + String.valueOf(bloqueFinal);
     }
-
+    /**
+     * Funcion que verifica que se pueda realizar el comando, de ser asi, ordena todos los bloques apilados en el bloque final a sus posiciones originales correspondientes
+     * y apila todos los bloques que se encuentran en el bloque inicial(incluyendo el bloque inicial) sobre el bloque final
+     * @param el conjuto de bloques en el cual se desea realizar el comando
+     */
     public void EjecutarComando(ConjuntoBloques bloques) {
-
-
-
         if (bloqueInicial != bloqueFinal) {
             if (bloqueInicial >= 0 && bloqueInicial < bloques.numeroDeBloques() && bloqueFinal >= 0 && bloqueFinal < bloques.numeroDeBloques()) {
                 int posicionBloqueInicial = bloques.buscarPosicionDeBloque(bloqueInicial);

@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +11,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author FireHunter
+ * @author Ismael Rolando, Lopez Jhenier
  */
 public class BrazoMecanicoControladorTest {
 
@@ -100,15 +96,15 @@ public class BrazoMecanicoControladorTest {
     }
 
     @Test
-    public void AlCrearElBrazoMecanicoNoExisteSiguienteComandoAEjecutar() {
-        assertFalse(brazoMecanico.existeSiguienteComando());
+    public void AlCrearElBrazoMecanicoNoExisteComandoAEjecutar() {
+        assertFalse(brazoMecanico.existeComando());
     }
 
     @Test
     public void AlIngresarUnComandoSiExisteUnSiguienteComandoAEjecutar() {
         String comando = "Apilar 2 en 4";
         brazoMecanico.ingresarComando(comando);
-        assertTrue(brazoMecanico.existeSiguienteComando());
+        assertTrue(brazoMecanico.existeComando());
     }
 
     @Test
@@ -116,7 +112,7 @@ public class BrazoMecanicoControladorTest {
         String comando = "mover 3 en 2";
         brazoMecanico.ingresarNumeroPosiciones(5);
         brazoMecanico.ingresarComando(comando);
-        brazoMecanico.ejecutarSiguienteComando();
+        brazoMecanico.ejecutarComando();
         List<Integer> listaBloquesEn3 = brazoMecanico.retornarBloquesDeUnaPosicion(3);
         List<Integer> listaBloquesEn2 = brazoMecanico.retornarBloquesDeUnaPosicion(2);
         assertEquals(0, listaBloquesEn3.size());
@@ -133,7 +129,7 @@ public class BrazoMecanicoControladorTest {
         String comando = "mover 6 en 2";
         brazoMecanico.ingresarNumeroPosiciones(5);
         brazoMecanico.ingresarComando(comando);
-        brazoMecanico.ejecutarSiguienteComando();
+        brazoMecanico.ejecutarComando();
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -141,7 +137,7 @@ public class BrazoMecanicoControladorTest {
         String comando = "mover 2 en 2";
         brazoMecanico.ingresarNumeroPosiciones(5);
         brazoMecanico.ingresarComando(comando);
-        brazoMecanico.ejecutarSiguienteComando();
+        brazoMecanico.ejecutarComando();
     }
 
     @Test
@@ -149,7 +145,7 @@ public class BrazoMecanicoControladorTest {
         String comando = "mover 3 sobre 2";
         brazoMecanico.ingresarNumeroPosiciones(5);
         brazoMecanico.ingresarComando(comando);
-        brazoMecanico.ejecutarSiguienteComando();
+        brazoMecanico.ejecutarComando();
 
         List<Integer> listaBloquesEn3 = brazoMecanico.retornarBloquesDeUnaPosicion(3);
         List<Integer> listaBloquesEn2 = brazoMecanico.retornarBloquesDeUnaPosicion(2);
@@ -166,7 +162,7 @@ public class BrazoMecanicoControladorTest {
         String comando = "mover 6 sobre 2";
         brazoMecanico.ingresarNumeroPosiciones(5);
         brazoMecanico.ingresarComando(comando);
-        brazoMecanico.ejecutarSiguienteComando();
+        brazoMecanico.ejecutarComando();
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -174,7 +170,7 @@ public class BrazoMecanicoControladorTest {
         String comando = "mover 2 sobre 2";
         brazoMecanico.ingresarNumeroPosiciones(5);
         brazoMecanico.ingresarComando(comando);
-        brazoMecanico.ejecutarSiguienteComando();
+        brazoMecanico.ejecutarComando();
     }
 
     @Test
@@ -182,7 +178,7 @@ public class BrazoMecanicoControladorTest {
         String comando = "apilar 4 en 2";
         brazoMecanico.ingresarNumeroPosiciones(5);
         brazoMecanico.ingresarComando(comando);
-        brazoMecanico.ejecutarSiguienteComando();
+        brazoMecanico.ejecutarComando();
 
         List<Integer> listaBloquesEn4 = brazoMecanico.retornarBloquesDeUnaPosicion(4);
         List<Integer> listaBloquesEn2 = brazoMecanico.retornarBloquesDeUnaPosicion(2);
@@ -199,7 +195,7 @@ public class BrazoMecanicoControladorTest {
         String comando = "apilar 7 en 3";
         brazoMecanico.ingresarNumeroPosiciones(6);
         brazoMecanico.ingresarComando(comando);
-        brazoMecanico.ejecutarSiguienteComando();
+        brazoMecanico.ejecutarComando();
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -207,7 +203,7 @@ public class BrazoMecanicoControladorTest {
         String comando = "apilar 3 en 3";
         brazoMecanico.ingresarNumeroPosiciones(6);
         brazoMecanico.ingresarComando(comando);
-        brazoMecanico.ejecutarSiguienteComando();
+        brazoMecanico.ejecutarComando();
     }
 
     @Test
@@ -215,7 +211,7 @@ public class BrazoMecanicoControladorTest {
         String comando = "apilar 5 sobre 1";
         brazoMecanico.ingresarNumeroPosiciones(6);
         brazoMecanico.ingresarComando(comando);
-        brazoMecanico.ejecutarSiguienteComando();
+        brazoMecanico.ejecutarComando();
 
         List<Integer> listaBloquesEn5 = brazoMecanico.retornarBloquesDeUnaPosicion(5);
         List<Integer> listaBloquesEn1 = brazoMecanico.retornarBloquesDeUnaPosicion(1);
@@ -232,7 +228,7 @@ public class BrazoMecanicoControladorTest {
         String comando = "apilar 3 sobre 9";
         brazoMecanico.ingresarNumeroPosiciones(7);
         brazoMecanico.ingresarComando(comando);
-        brazoMecanico.ejecutarSiguienteComando();
+        brazoMecanico.ejecutarComando();
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -240,7 +236,7 @@ public class BrazoMecanicoControladorTest {
         String comando = "apilar 2 sobre 2";
         brazoMecanico.ingresarNumeroPosiciones(4);
         brazoMecanico.ingresarComando(comando);
-        brazoMecanico.ejecutarSiguienteComando();
+        brazoMecanico.ejecutarComando();
     }
 
     @Test
@@ -258,9 +254,9 @@ public class BrazoMecanicoControladorTest {
         brazoMecanico.ingresarComando(comando4);
         brazoMecanico.ingresarComando(comando5);
 
-        while (brazoMecanico.existeSiguienteComando()) {
+        while (brazoMecanico.existeComando()) {
             try {
-                brazoMecanico.ejecutarSiguienteComando();
+                brazoMecanico.ejecutarComando();
             } catch (Exception exception) {
             }
         }

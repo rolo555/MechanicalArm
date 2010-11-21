@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package mechanicalarm;
 
 import java.io.FileNotFoundException;
@@ -11,12 +8,13 @@ import java.util.Stack;
 
 /**
  *
- * @author Rolo
+ * @author Ismael Rolando, Lopez Jhenier
  */
 public class Main {
-
     /**
-     * @param args the command line arguments
+     * Funcino que muestra las posiciones del conjunto con el valor de los bloques correspondientes apilados en cada posicion.
+     * @param el conjunto de bloques
+     * @return un string que muestra el valor del conjunto de bloques con el formato solicitado
      */
     public static String mostrarMovimiento(Stack<Integer>[] bloques) {
         StringBuilder movimientoStr = new StringBuilder("");
@@ -66,10 +64,10 @@ public class Main {
                     }
                     System.out.println("Iniciando ejecucion:");
                     indiceComando = 0;
-                    while (brazoMecanico.existeSiguienteComando()) {
+                    while (brazoMecanico.existeComando()) {
                         System.out.println(brazoMecanico.retornarComando(indiceComando));
                         try {
-                            brazoMecanico.ejecutarSiguienteComando();
+                            brazoMecanico.ejecutarComando();
                         } catch (Exception exp) {
                             System.out.println(exp.getMessage());
                         }
@@ -92,10 +90,10 @@ public class Main {
                                 brazoMecanico.ingresarComando(s);
                             } while (!s.equals("salir"));
                             indiceComando = 0;
-                            while (brazoMecanico.existeSiguienteComando()) {
+                            while (brazoMecanico.existeComando()) {
                                 System.out.println(brazoMecanico.retornarComando(indiceComando));
                                 try {
-                                    brazoMecanico.ejecutarSiguienteComando();
+                                    brazoMecanico.ejecutarComando();
                                 } catch (Exception exp) {
                                     System.out.println(exp.getMessage());
                                 }
@@ -106,7 +104,7 @@ public class Main {
                             System.out.println("Numero de bloques invalido!!!");
                         }
                     } catch (Exception e) {
-                        System.out.println("Numero de bloques invalido!!!");
+                        System.out.println("Numero invalido!!!");
                     }
                     break;
                 default:
@@ -114,7 +112,5 @@ public class Main {
             }
 
         } while (opcion != 3);
-
-
     }
 }

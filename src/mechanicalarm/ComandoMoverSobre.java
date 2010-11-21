@@ -1,25 +1,33 @@
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package mechanicalarm;
 
 /**
  *
- * @author FireHunter
+ * @author Ismael Rolando, Lopez Jhenier
  */
 public class ComandoMoverSobre extends Comando {
 
+    /**
+     * Constructor de ComandoMoverSobre que recibe el valor del bloque inicial y el valor del bloque final que se desea mover
+     * @param bloqueInicial el valor del bloque que se desea mover
+     * @param bloqueFinal el valor del bloque al cual se desea mover el bloque correspondiente al bloqueInicial
+     */
     public ComandoMoverSobre(int bloqueInicial, int bloqueFinal) {
         this.bloqueInicial = bloqueInicial;
         this.bloqueFinal = bloqueFinal;
     }
-
+    /**
+     * Funcion que que retorna el comando en forma de string
+     * @return el comando en forma de string
+     */
     public String TransformarEnString() {
         return "Mover " + String.valueOf(bloqueInicial) + " sobre " + String.valueOf(bloqueFinal);
     }
-
+    /**
+     * Funcion que verifica que se pueda realizar el comando, de ser asi, ordena todos los bloques apilados en el bloque con el valor igual al bloqueInicial a sus posiciones origianles correspondientes
+     * y mueve el bloque con el valor igual al bloqueInicial sobre la pila donde se encuentra el bloque con el valor igual al bloqueFinal
+     * @param el conjuto de bloques en el cual se desea realizar el comando
+     */
     public void EjecutarComando(ConjuntoBloques bloques) {
         int posicionBloqueInicial = bloques.buscarPosicionDeBloque(bloqueInicial);
         int posicionBloqueFinal;

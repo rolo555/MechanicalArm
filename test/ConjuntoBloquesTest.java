@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 
 import mechanicalarm.ConjuntoBloques;
 import org.junit.Before;
@@ -15,11 +11,6 @@ import static org.junit.Assert.*;
 public class ConjuntoBloquesTest {
 
     private ConjuntoBloques brazo;
-
-    /**
-     * Inicializa un nuevo ConjuntoBloques llamado "brazo"
-     *
-     */
 
     @Before
     public void setUp() {
