@@ -154,7 +154,7 @@ public class ConjuntoBloquesTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void noEsPosibleLlamarALaFuncionPopPosXAPosYConPosicionesInvalidas(){
+    public void noEsPosibleLlamarALaFuncionPopPosXAPosYConPosicionesInvalidas() {
         brazo.crearPosiciones(2);
         brazo.popPosXAPosY(3, -2);
     }

@@ -16,6 +16,7 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+
         BrazoMecanicoControlador brazoMecanico = new BrazoMecanicoControlador();
         String comando1 = "mover 0 en 3";
         String comando2 = "apilar 1 en 2";
@@ -36,7 +37,6 @@ public class Main {
             } catch (Exception exception) {
             }
         }
-
     }
 
 }
