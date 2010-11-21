@@ -115,4 +115,9 @@ public class ConjuntoBloques {
         return bloques[i].subList(0,bloques[i].size() );
     }
 
+    public Stack<Integer>[] retornarConjuntoDeBloques()
+    {
+        return this.bloques;
+    }
+
 }

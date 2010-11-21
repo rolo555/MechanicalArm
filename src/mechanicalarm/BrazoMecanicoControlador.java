@@ -6,6 +6,7 @@ package mechanicalarm;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 /**
  *
@@ -16,7 +17,6 @@ public class BrazoMecanicoControlador {
     List<Comando> listaComandos;
     int indiceComandoActual;
     ConjuntoBloques bloques;
-
 
     public BrazoMecanicoControlador() {
         listaComandos = new ArrayList<Comando>();
@@ -30,22 +30,21 @@ public class BrazoMecanicoControlador {
     public boolean ingresarComando(String comando) {
         String comandoAux = comando.toLowerCase();
         String[] partesComando = comandoAux.split(" ");
-        if(partesComando.length==4)
-        {
-            Comando comandoActual = Comando.ConvertirComando(partesComando);
-            if(comandoActual==null)
-            {
-                listaComandos.add(new ComandoInvalido(comando));
-                return false;
-            }
-            else
-            {
-                listaComandos.add(comandoActual);
+        if (partesComando.length == 4 || comandoAux.equals("salir")) {
+            if (comandoAux.equals("salir")) {
+                listaComandos.add(new ComandoSalir());
                 return true;
+            } else {
+                Comando comandoActual = Comando.ConvertirComando(partesComando);
+                if (comandoActual == null) {
+                    listaComandos.add(new ComandoInvalido(comando));
+                    return false;
+                } else {
+                    listaComandos.add(comandoActual);
+                    return true;
+                }
             }
-        }
-        else
-        {
+        } else {
             listaComandos.add(new ComandoInvalido(comando));
             return false;
         }
@@ -55,9 +54,12 @@ public class BrazoMecanicoControlador {
         return listaComandos.get(posicion).TransformarEnString();
     }
 
-    public boolean existeSiguienteComando()
-    {
-        return indiceComandoActual<listaComandos.size();
+    public boolean existeSiguienteComando() {
+        if(listaComandos.get(indiceComandoActual) instanceof ComandoSalir )
+            return false;
+        if(indiceComandoActual < listaComandos.size())
+            return true;
+        return false;
     }
 
     public void ejecutarSiguienteComando() {
@@ -65,9 +67,7 @@ public class BrazoMecanicoControlador {
             listaComandos.get(indiceComandoActual).EjecutarComando(bloques);
         } catch (Exception exp) {
             throw new IllegalArgumentException(exp.getMessage());
-        }
-        finally
-        {
+        } finally {
             ++indiceComandoActual;
         }
     }
@@ -79,5 +79,9 @@ public class BrazoMecanicoControlador {
     public void ingresarNumeroPosiciones(int numeroPosiciones) {
         bloques = new ConjuntoBloques();
         bloques.crearPosiciones(numeroPosiciones);
+    }
+
+    public Stack<Integer>[] retornarTodosLosBloques() {
+        return this.bloques.retornarConjuntoDeBloques();
     }
 }
