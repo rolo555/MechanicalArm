@@ -21,27 +21,33 @@ public class ComandoMoverEn extends Comando {
 
     public void EjecutarComando(ConjuntoBloques bloques) {
         int posicionBloqueInicial = bloques.buscarPosicionDeBloque(bloqueInicial);
-        int posicionBloqueFinal = bloques.buscarPosicionDeBloque(bloqueFinal);
+        int posicionBloqueFinal;
         int numeroBloquesSobreBloqueInicial = bloques.calcularNumeroDeBloquesApiladosSobre(bloqueInicial);
-        int numeroBloquesSobreBloqueFinal = bloques.calcularNumeroDeBloquesApiladosSobre(bloqueFinal);
+        int numeroBloquesSobreBloqueFinal;
 
-        if (posicionBloqueInicial != posicionBloqueFinal) {
-            if (bloqueInicial >= 0 && bloqueInicial < bloques.numeroDeBloques() && bloqueFinal >= 0 && bloqueFinal < bloques.numeroDeBloques()) {
-                for (int i = 0; i < numeroBloquesSobreBloqueInicial; ++i) {
-                    bloques.retornarUltimoBloqueApiladoASuPosicionOriginal(posicionBloqueInicial);
-                }
-
-                for (int i = 0; i < numeroBloquesSobreBloqueFinal; ++i) {
-                    bloques.retornarUltimoBloqueApiladoASuPosicionOriginal(posicionBloqueFinal);
-                }
-
-                bloques.popPosXAPosY(posicionBloqueInicial, posicionBloqueFinal);
-            } else {
-                throw new IllegalArgumentException("Comando invalido (no existen suficientes bloques para ejecutar el comando)");
+        if(bloqueInicial!=bloqueFinal)
+        {
+        if (bloqueInicial >= 0 && bloqueInicial < bloques.numeroDeBloques() && bloqueFinal >= 0 && bloqueFinal < bloques.numeroDeBloques()) {
+            for (int i = 0; i < numeroBloquesSobreBloqueInicial; ++i) {
+                bloques.retornarUltimoBloqueApiladoASuPosicionOriginal(posicionBloqueInicial);
             }
-        } else {
-            throw new IllegalArgumentException("Comando invalido (los bloques inicial y final se ubican en la misma posicion)");
-        }
 
+            posicionBloqueInicial = bloques.buscarPosicionDeBloque(bloqueInicial);
+            posicionBloqueFinal = bloques.buscarPosicionDeBloque(bloqueFinal);
+            numeroBloquesSobreBloqueInicial = bloques.calcularNumeroDeBloquesApiladosSobre(bloqueInicial);
+            numeroBloquesSobreBloqueFinal = bloques.calcularNumeroDeBloquesApiladosSobre(bloqueFinal);
+            for (int i = 0; i < numeroBloquesSobreBloqueFinal; ++i) {
+                bloques.retornarUltimoBloqueApiladoASuPosicionOriginal(posicionBloqueFinal);
+            }
+
+            bloques.popPosXAPosY(posicionBloqueInicial, posicionBloqueFinal);
+        } else {
+            throw new IllegalArgumentException("Comando invalido (no existen suficientes bloques para ejecutar el comando)");
+        }
+        }
+        else
+        {
+            throw new IllegalArgumentException("Comando invalido (los bloques inicio y final son el mismo)");
+        }
     }
 }
