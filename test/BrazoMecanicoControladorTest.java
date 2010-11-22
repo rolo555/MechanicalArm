@@ -2,6 +2,7 @@
 import java.util.ArrayList;
 import java.util.List;
 import mechanicalarm.BrazoMecanicoControlador;
+import mechanicalarm.ComandoSalir;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -253,6 +254,7 @@ public class BrazoMecanicoControladorTest {
         brazoMecanico.ingresarComando(comando3);
         brazoMecanico.ingresarComando(comando4);
         brazoMecanico.ingresarComando(comando5);
+        brazoMecanico.ingresarComando(new ComandoSalir());
 
         while (brazoMecanico.existeComando()) {
             try {

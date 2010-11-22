@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<<<<<<< HEAD
-<testsuite errors="0" failures="0" hostname="REN" name="BrazoMecanicoControladorTest" tests="22" time="0.166" timestamp="2010-11-21T13:12:34">
-=======
-<testsuite errors="0" failures="0" hostname="REN" name="BrazoMecanicoControladorTest" tests="22" time="0.155" timestamp="2010-11-21T14:05:20">
->>>>>>> ramaJhenier
+<testsuite errors="0" failures="0" hostname="REN" name="BrazoMecanicoControladorTest" tests="22" time="0.147" timestamp="2010-11-22T03:08:59">
   <properties>
     <property name="netbeans.autoupdate.country" value="US" />
     <property name="javac.test.classpath" value=":build/classes:C:\Program Files\NetBeans 6.8\platform11\modules\ext\junit-4.5.jar" />
@@ -123,6 +119,7 @@
     <property name="libs.junit.classpath" value="C:\Program Files\NetBeans 6.8\java3\modules\ext\junit-3.8.2.jar" />
     <property name="libs.jaxb.javadoc" value="C:\Program Files\NetBeans 6.8\ide12\docs\jaxb-api-doc.zip" />
     <property name="libs.struts.classpath" value="C:\Program Files\NetBeans 6.8\enterprise6\modules\ext\struts\antlr-2.7.2.jar;C:\Program Files\NetBeans 6.8\enterprise6\modules\ext\struts\bsf-2.3.0.jar;C:\Program Files\NetBeans 6.8\enterprise6\modules\ext\struts\commons-beanutils-1.7.0.jar;C:\Program Files\NetBeans 6.8\enterprise6\modules\ext\struts\commons-chain-1.1.jar;C:\Program Files\NetBeans 6.8\enterprise6\modules\ext\struts\commons-digester-1.8.jar;C:\Program Files\NetBeans 6.8\enterprise6\modules\ext\struts\commons-fileupload-1.1.1.jar;C:\Program Files\NetBeans 6.8\enterprise6\modules\ext\struts\commons-io-1.1.jar;C:\Program Files\NetBeans 6.8\enterprise6\modules\ext\struts\commons-logging-1.0.4.jar;C:\Program Files\NetBeans 6.8\enterprise6\modules\ext\struts\commons-validator-1.3.1.jar;C:\Program Files\NetBeans 6.8\enterprise6\modules\ext\struts\jstl-1.0.2.jar;C:\Program Files\NetBeans 6.8\enterprise6\modules\ext\struts\oro-2.0.8.jar;C:\Program Files\NetBeans 6.8\enterprise6\modules\ext\struts\standard-1.0.2.jar;C:\Program Files\NetBeans 6.8\enterprise6\modules\ext\struts\struts-core-1.3.8.jar;C:\Program Files\NetBeans 6.8\enterprise6\modules\ext\struts\struts-el-1.3.8.jar;C:\Program Files\NetBeans 6.8\enterprise6\modules\ext\struts\struts-extras-1.3.8.jar;C:\Program Files\NetBeans 6.8\enterprise6\modules\ext\struts\struts-faces-1.3.8.jar;C:\Program Files\NetBeans 6.8\enterprise6\modules\ext\struts\struts-mailreader-dao-1.3.8.jar;C:\Program Files\NetBeans 6.8\enterprise6\modules\ext\struts\struts-scripting-1.3.8.jar;C:\Program Files\NetBeans 6.8\enterprise6\modules\ext\struts\struts-taglib-1.3.8.jar;C:\Program Files\NetBeans 6.8\enterprise6\modules\ext\struts\struts-tiles-1.3.8.jar" />
+    <property name="org.openide.awt.SwingBrowserImpl.do-not-block-awt" value="false" />
     <property name="ant.home" value="C:\Program Files\NetBeans 6.8\java3\ant" />
     <property name="libs.junit_4.src" value="C:\Program Files\NetBeans 6.8\java3\docs\junit-4.5-src.jar" />
     <property name="libs.ricoh-ant-utils.maven-pom" value="" />
@@ -327,8 +324,8 @@
     <property name="annotation.processing.enabled" value="true" />
     <property name="libs.jsf20.src" value="" />
     <property name="libs.proguard.maven-pom" value="" />
-    <property name="libs.jsf12.src" value="" />
     <property name="libs.DataBindingME-SVG.maven-pom" value="" />
+    <property name="libs.jsf12.src" value="" />
     <property name="libs.nokiadeployment.src" value="" />
     <property name="libs.savaje-ant-utils.javadoc" value="" />
     <property name="nbplatform.default.netbeans.dest.dir" value="C:\Program Files\NetBeans 6.8" />
@@ -339,16 +336,9 @@
     <property name="dist.dir" value="dist" />
     <property name="libs.groovy-all.javadoc" value="" />
     <property name="do.archive+manifest.available+main.class" value="true" />
-<<<<<<< HEAD
-    <property name="javac.fork" value="false" />
-    <property name="libs.groovy-all.classpath" value="C:\Program Files\NetBeans 6.8\groovy2\modules\ext\groovy-all.jar" />
-    <property name="libs.sjmc-ant-utils.classpath" value="C:\Program Files\NetBeans 6.8\mobility8\modules\ext\org-netbeans-modules-j2me-cdc-project-sjmc.jar" />
-    <property name="libs.JMUnit4CLDC10.classpath" value="C:\Program Files\NetBeans 6.8\mobility8\modules\ext\jmunit4cldc10-1.2.1.jar" />
-=======
     <property name="libs.groovy-all.classpath" value="C:\Program Files\NetBeans 6.8\groovy2\modules\ext\groovy-all.jar" />
     <property name="libs.sjmc-ant-utils.classpath" value="C:\Program Files\NetBeans 6.8\mobility8\modules\ext\org-netbeans-modules-j2me-cdc-project-sjmc.jar" />
     <property name="javac.fork" value="false" />
->>>>>>> ramaJhenier
     <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob" />
     <property name="libs.JMUnit4CLDC10.classpath" value="C:\Program Files\NetBeans 6.8\mobility8\modules\ext\jmunit4cldc10-1.2.1.jar" />
     <property name="default.javac.source" value="1.6" />
@@ -372,8 +362,8 @@
     <property name="libs.jsf20.javadoc" value="C:\Program Files\NetBeans 6.8\enterprise6\docs\javaee6-doc-api.zip" />
     <property name="java.ext.dirs" value="C:\Program Files (x86)\Java\jdk1.6.0_18\jre\lib\ext;C:\Windows\Sun\Java\lib\ext" />
     <property name="libs.metro.src" value="" />
-    <property name="libs.semc-ant-utils.src" value="" />
     <property name="libs.savaje-ant-utils.maven-pom" value="" />
+    <property name="libs.semc-ant-utils.src" value="" />
     <property name="libs.absolutelayout.classpath" value="C:\Program Files\NetBeans 6.8\java3\modules\ext\AbsoluteLayout.jar" />
     <property name="excludes" value="" />
     <property name="libs.metro.classpath" value="C:\Program Files\NetBeans 6.8\ide12\modules\ext\jaxb\activation.jar;C:\Program Files\NetBeans 6.8\enterprise6\modules\ext\metro\webservices-api.jar;C:\Program Files\NetBeans 6.8\enterprise6\modules\ext\metro\webservices-extra-api.jar;C:\Program Files\NetBeans 6.8\enterprise6\modules\ext\metro\webservices-extra.jar;C:\Program Files\NetBeans 6.8\enterprise6\modules\ext\metro\webservices-rt.jar;C:\Program Files\NetBeans 6.8\enterprise6\modules\ext\metro\webservices-tools.jar" />
@@ -386,8 +376,8 @@
     <property name="libs.cdc-pp-awt-layout.maven-pom" value="" />
     <property name="os.version" value="6.1" />
     <property name="application.args" value="" />
-    <property name="main.class.available" value="true" />
     <property name="libs.JMUnit4CLDC11.maven-pom" value="" />
+    <property name="main.class.available" value="true" />
     <property name="libs.toplink.javadoc" value="C:\Program Files\NetBeans 6.8\enterprise6\docs\javaee6-doc-api.zip" />
     <property name="sun.desktop" value="windows" />
     <property name="libs.nb_svg_midp_components.maven-pom" value="" />
@@ -395,8 +385,8 @@
     <property name="libs.restlib.javadoc" value="C:\Program Files\NetBeans 6.8\enterprise6\docs\jersey-1.1.4-javadoc.zip" />
     <property name="libs.NetBeans MIDP Components PDA.maven-pom" value="" />
     <property name="libs.eclipselink.classpath" value="C:\Program Files\NetBeans 6.8\java3\modules\ext\eclipselink\eclipselink-2.0.0.jar;C:\Program Files\NetBeans 6.8\java3\modules\ext\eclipselink\eclipselink-javax.persistence-2.0.jar" />
-    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment" />
     <property name="libs.beans-binding.javadoc" value="C:\Program Files\NetBeans 6.8\java3\docs\beansbinding-1.2.1-doc.zip" />
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment" />
     <property name="java.vm.vendor" value="Sun Microsystems Inc." />
     <property name="libs.CopyLibs.classpath" value="C:\Program Files\NetBeans 6.8\java3\ant\extra\org-netbeans-modules-java-j2seproject-copylibstask.jar" />
     <property name="libs.spring-webmvc.maven-pom" value="" />
@@ -418,43 +408,19 @@
     <property name="platform.active" value="default_platform" />
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
   </properties>
-<<<<<<< HEAD
-  <testcase classname="BrazoMecanicoControladorTest" name="AlCrearElBrazoMecanicoNoTieneComandos" time="0.0030" />
-  <testcase classname="BrazoMecanicoControladorTest" name="AlIngresarUnComandoElNumeroDeComnadosNoEsCero" time="0.018" />
-  <testcase classname="BrazoMecanicoControladorTest" name="AlIngresarVariosComandosElNumeroDeComandosEsIgualAlNumeroIngresado" time="0.0" />
+  <testcase classname="BrazoMecanicoControladorTest" name="AlCrearElBrazoMecanicoNoTieneComandos" time="0.0060" />
+  <testcase classname="BrazoMecanicoControladorTest" name="AlIngresarUnComandoElNumeroDeComnadosNoEsCero" time="0.0030" />
+  <testcase classname="BrazoMecanicoControladorTest" name="AlIngresarVariosComandosElNumeroDeComandosEsIgualAlNumeroIngresado" time="0.0010" />
   <testcase classname="BrazoMecanicoControladorTest" name="AlIngresarUnComandoEsteEsIngresadoCorrectamente" time="0.0" />
   <testcase classname="BrazoMecanicoControladorTest" name="AlIngresarVariosComandosEstoSeIngresanCorrectamente" time="0.0010" />
-  <testcase classname="BrazoMecanicoControladorTest" name="AlIngresarUnComandoSeRetornaTrueSiElComandoEsValido" time="0.0" />
-  <testcase classname="BrazoMecanicoControladorTest" name="AlIngresarUnComandoSeRetornaFalseSielComandoEsInvalido" time="0.0080" />
-  <testcase classname="BrazoMecanicoControladorTest" name="AlCrearElBrazoMecanicoNoExisteSiguienteComandoAEjecutar" time="0.0" />
-  <testcase classname="BrazoMecanicoControladorTest" name="AlIngresarUnComandoSiExisteUnSiguienteComandoAEjecutar" time="0.0010" />
-  <testcase classname="BrazoMecanicoControladorTest" name="SeEjecutaMover3en2CorrectamenteTeniendo5Posiciones" time="0.015" />
-  <testcase classname="BrazoMecanicoControladorTest" name="NoSeEjecutaCorrectamenteMover6en2Teniendo5Posiciones" time="0.0010" />
-  <testcase classname="BrazoMecanicoControladorTest" name="NoSeEjecutaCorrectamenteMover2en2Teniendo5Posiciones" time="0.0" />
-  <testcase classname="BrazoMecanicoControladorTest" name="SeEjecutaMover3Sobre2Teniendo5Posiciones" time="0.0050" />
-  <testcase classname="BrazoMecanicoControladorTest" name="NoSeEjecutaCorrectamenteMover6Sobre2Teniendo5Posiciones" time="0.0" />
-  <testcase classname="BrazoMecanicoControladorTest" name="NoSeEjecutaCorrectamenteMover2Sobre2Teniendo5Posiciones" time="0.0" />
-  <testcase classname="BrazoMecanicoControladorTest" name="SeEjecutaApilar4en2CorrectamenteTeniendo5Posiciones" time="0.0050" />
-  <testcase classname="BrazoMecanicoControladorTest" name="NoSeEjecutaApilar7en3Teniendo6Posiciones" time="0.0010" />
-  <testcase classname="BrazoMecanicoControladorTest" name="NoSeEjecutaApilar3en3Teniendo6Posiciones" time="0.0" />
-  <testcase classname="BrazoMecanicoControladorTest" name="SeEjecutaApilar5Sobre1Teniendo6Posiciones" time="0.0" />
-  <testcase classname="BrazoMecanicoControladorTest" name="NoSeEjecutaApilar3Sobre9Teniendo7Posiciones" time="0.0" />
-  <testcase classname="BrazoMecanicoControladorTest" name="NoSeEjecutaApilar2Sobre2Teniendo4Posiciones" time="0.0010" />
-  <testcase classname="BrazoMecanicoControladorTest" name="SeEjecutanLos4TiposDeComandoYUnComandoInvalido" time="0.0010" />
-=======
-  <testcase classname="BrazoMecanicoControladorTest" name="AlCrearElBrazoMecanicoNoTieneComandos" time="0.01" />
-  <testcase classname="BrazoMecanicoControladorTest" name="AlIngresarUnComandoElNumeroDeComnadosNoEsCero" time="0.013" />
-  <testcase classname="BrazoMecanicoControladorTest" name="AlIngresarVariosComandosElNumeroDeComandosEsIgualAlNumeroIngresado" time="0.0010" />
-  <testcase classname="BrazoMecanicoControladorTest" name="AlIngresarUnComandoEsteEsIngresadoCorrectamente" time="0.0030" />
-  <testcase classname="BrazoMecanicoControladorTest" name="AlIngresarVariosComandosEstoSeIngresanCorrectamente" time="0.0010" />
-  <testcase classname="BrazoMecanicoControladorTest" name="AlIngresarUnComandoSeRetornaTrueSiElComandoEsValido" time="0.0010" />
+  <testcase classname="BrazoMecanicoControladorTest" name="AlIngresarUnComandoSeRetornaTrueSiElComandoEsValido" time="0.0020" />
   <testcase classname="BrazoMecanicoControladorTest" name="AlIngresarUnComandoSeRetornaFalseSielComandoEsInvalido" time="0.0010" />
-  <testcase classname="BrazoMecanicoControladorTest" name="AlCrearElBrazoMecanicoNoExisteSiguienteComandoAEjecutar" time="0.0" />
+  <testcase classname="BrazoMecanicoControladorTest" name="AlCrearElBrazoMecanicoNoExisteComandoAEjecutar" time="0.0" />
   <testcase classname="BrazoMecanicoControladorTest" name="AlIngresarUnComandoSiExisteUnSiguienteComandoAEjecutar" time="0.0" />
-  <testcase classname="BrazoMecanicoControladorTest" name="SeEjecutaMover3en2CorrectamenteTeniendo5Posiciones" time="0.0020" />
+  <testcase classname="BrazoMecanicoControladorTest" name="SeEjecutaMover3en2CorrectamenteTeniendo5Posiciones" time="0.0040" />
   <testcase classname="BrazoMecanicoControladorTest" name="NoSeEjecutaCorrectamenteMover6en2Teniendo5Posiciones" time="0.0" />
   <testcase classname="BrazoMecanicoControladorTest" name="NoSeEjecutaCorrectamenteMover2en2Teniendo5Posiciones" time="0.0" />
-  <testcase classname="BrazoMecanicoControladorTest" name="SeEjecutaMover3Sobre2Teniendo5Posiciones" time="0.0" />
+  <testcase classname="BrazoMecanicoControladorTest" name="SeEjecutaMover3Sobre2Teniendo5Posiciones" time="0.0010" />
   <testcase classname="BrazoMecanicoControladorTest" name="NoSeEjecutaCorrectamenteMover6Sobre2Teniendo5Posiciones" time="0.0010" />
   <testcase classname="BrazoMecanicoControladorTest" name="NoSeEjecutaCorrectamenteMover2Sobre2Teniendo5Posiciones" time="0.0010" />
   <testcase classname="BrazoMecanicoControladorTest" name="SeEjecutaApilar4en2CorrectamenteTeniendo5Posiciones" time="0.0030" />
@@ -462,9 +428,8 @@
   <testcase classname="BrazoMecanicoControladorTest" name="NoSeEjecutaApilar3en3Teniendo6Posiciones" time="0.0010" />
   <testcase classname="BrazoMecanicoControladorTest" name="SeEjecutaApilar5Sobre1Teniendo6Posiciones" time="0.0010" />
   <testcase classname="BrazoMecanicoControladorTest" name="NoSeEjecutaApilar3Sobre9Teniendo7Posiciones" time="0.0" />
-  <testcase classname="BrazoMecanicoControladorTest" name="NoSeEjecutaApilar2Sobre2Teniendo4Posiciones" time="0.0010" />
+  <testcase classname="BrazoMecanicoControladorTest" name="NoSeEjecutaApilar2Sobre2Teniendo4Posiciones" time="0.0" />
   <testcase classname="BrazoMecanicoControladorTest" name="SeEjecutanLos4TiposDeComandoYUnComandoInvalido" time="0.0" />
->>>>>>> ramaJhenier
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
