@@ -1,9 +1,9 @@
-
 package mechanicalarm;
 
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.io.FileInputStream;
+import java.util.List;
 import java.util.Stack;
 
 /**
@@ -11,6 +11,7 @@ import java.util.Stack;
  * @author Ismael Rolando, Lopez Jhenier
  */
 public class Main {
+
     /**
      * Funcino que muestra las posiciones del conjunto con el valor de los bloques correspondientes apilados en cada posicion.
      * @param el conjunto de bloques
@@ -27,9 +28,40 @@ public class Main {
             movimientoStr.append("\n");
             indice++;
         }
-
-
         return movimientoStr.toString();
+    }
+
+    public static void EjecutarComandos(BrazoMecanicoControlador brazoMecanico) {
+        System.out.println("Iniciando ejecucion:");
+        int indiceComando = 0;
+        while (brazoMecanico.existeComando()) {
+            System.out.println(brazoMecanico.retornarComando(indiceComando));
+            try {
+                brazoMecanico.ejecutarComando();
+            } catch (Exception exp) {
+                System.out.println(exp.getMessage());
+            }
+            System.out.println(mostrarMovimiento(brazoMecanico.retornarTodosLosBloques()));
+            indiceComando++;
+        }
+    }
+
+    public static void EjecutarOptimizacion(BrazoMecanicoControlador brazoMecanico) {
+        System.out.println("Iniciando optimizacion....");
+        BrazoMecanicoControlador nuevoBrazoMecanico = new BrazoMecanicoControlador();
+        nuevoBrazoMecanico.ingresarNumeroPosiciones(brazoMecanico.retornarCantidadDePosiciones());
+        List<Comando> comandosOptimizados = brazoMecanico.optimizarLosComandosActuales();
+        System.out.println("Optimizacion terminada....");
+        System.out.println("");
+        System.out.println("Mostrando nuevos comandos");
+        for (Comando comando : comandosOptimizados) {
+            System.out.println(comando.TransformarEnString());
+            nuevoBrazoMecanico.ingresarComando(comando);
+        }
+        nuevoBrazoMecanico.ingresarComando(new ComandoSalir());
+        System.out.println("");
+        System.out.println("Iniciando ejecucion de los comandos optimizados...");
+        EjecutarComandos(nuevoBrazoMecanico);
     }
 
     public static void main(String[] args) throws FileNotFoundException {
@@ -37,8 +69,8 @@ public class Main {
         int opcion;
         String comando;
         int numeroDePos;
-        int indiceComando;
         String numeroDePosStr;
+        String ejecutarOptimizador;
         BrazoMecanicoControlador brazoMecanico = new BrazoMecanicoControlador();
         do {
             System.out.println(" ------------------------------------------");
@@ -62,17 +94,11 @@ public class Main {
                         comando = scanner.nextLine();
                         brazoMecanico.ingresarComando(comando);
                     }
-                    System.out.println("Iniciando ejecucion:");
-                    indiceComando = 0;
-                    while (brazoMecanico.existeComando()) {
-                        System.out.println(brazoMecanico.retornarComando(indiceComando));
-                        try {
-                            brazoMecanico.ejecutarComando();
-                        } catch (Exception exp) {
-                            System.out.println(exp.getMessage());
-                        }
-                        System.out.println(mostrarMovimiento(brazoMecanico.retornarTodosLosBloques()));
-                        indiceComando++;
+                    EjecutarComandos(brazoMecanico);
+                    System.out.print("Desea ejecutar el optimizador de comandos (y/n):  ");
+                    ejecutarOptimizador = in.next();
+                    if (ejecutarOptimizador.equals("y")) {
+                        EjecutarOptimizacion(brazoMecanico);
                     }
                     break;
                 case 2:
@@ -89,16 +115,11 @@ public class Main {
                                 s = s.toLowerCase();
                                 brazoMecanico.ingresarComando(s);
                             } while (!s.equals("salir"));
-                            indiceComando = 0;
-                            while (brazoMecanico.existeComando()) {
-                                System.out.println(brazoMecanico.retornarComando(indiceComando));
-                                try {
-                                    brazoMecanico.ejecutarComando();
-                                } catch (Exception exp) {
-                                    System.out.println(exp.getMessage());
-                                }
-                                System.out.println(mostrarMovimiento(brazoMecanico.retornarTodosLosBloques()));
-                                indiceComando++;
+                            EjecutarComandos(brazoMecanico);
+                            System.out.print("Desea ejecutar el optimizador de comandos (y/n):  ");
+                            ejecutarOptimizador = in.next();
+                            if (ejecutarOptimizador.equals("y")) {
+                                EjecutarOptimizacion(brazoMecanico);
                             }
                         } else {
                             System.out.println("Numero de bloques invalido!!!");

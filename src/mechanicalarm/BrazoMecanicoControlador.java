@@ -67,16 +67,23 @@ public class BrazoMecanicoControlador {
     }
 
     /**
-     * Funcion que regresa el comando en forma de string que se encuentra en la posicion dada de la lista de comandos
+     * Funcion que regresa el comando en forma de string que se encuentra en la posicion dada de la lista de comandos, si no existe el comando retorna null
      * @param posicion de la lista de comandos
      * @return el comando en forma de string
      */
     public String retornarComando(int posicion) {
-        return listaComandos.get(posicion).TransformarEnString();
+        if(posicion<listaComandos.size())
+        {
+            return listaComandos.get(posicion).TransformarEnString();
+        }
+        else
+        {
+            return null;
+        }
     }
 
     /**
-     * Funcino que indica si la lista de comandos esta vacia o el indice de comandos se encuentra dentro de la lista de comandos o en el comando "Salir"
+     * Funcion que indica si la lista de comandos esta vacia o el indice de comandos se encuentra dentro de la lista de comandos o en el comando "Salir"
      * @return "true" si el indice se encuntre dentro de la lista de comandos "false"  en otro caso
      */
     public boolean existeComando() {
@@ -125,10 +132,66 @@ public class BrazoMecanicoControlador {
     }
 
     /**
+     * Funcion que retorna la cantidad de bloques(posiciones) que tiene el conjunto de bloques que se esta manejando;
+     * @return cantidad de bloques
+     */
+
+    public int retornarCantidadDePosiciones()
+    {
+        return bloques.numeroDeBloques();
+    }
+
+    /**
      * Funcion que retorna todo el conjunto de bloques.
      * @return el conjunto de bloques con sus respectivos bloques apilados.
      */
     public Stack<Integer>[] retornarTodosLosBloques() {
         return this.bloques.retornarConjuntoDeBloques();
     }
+
+    /**
+     * funcion que optimiza la secuencia de comandos que ha sido ejecutada hasta el momento
+     * @return la nueva secuencia de comandos
+     */
+    public List<Comando> optimizarLosComandosActuales()
+    {
+        List<Comando> listaComandosOptimizados = new ArrayList<Comando>();
+        int numeroPosiciones = this.bloques.numeroDeBloques();
+        for(int i=0; i< numeroPosiciones; ++i)
+        {
+            List<Integer> listaBloquesPosicion =  this.bloques.retornarBloquesDeUnaPosicion(i);
+            if(listaBloquesPosicion.size() != 1 && listaBloquesPosicion.size() != 0)
+            {
+                boolean primerComando = true;
+                for(int j=listaBloquesPosicion.size()-2; j>=0; --j)
+                {
+                    if(primerComando)
+                    {
+                        int bloqueInicialAux = listaBloquesPosicion.get(j+1);
+                        int bloqueFinalAux = listaBloquesPosicion.get(j);
+                        ComandoMoverEn comando = new ComandoMoverEn( bloqueInicialAux, bloqueFinalAux);
+                        listaComandosOptimizados.add(comando);
+                        primerComando=false;
+                    }
+                    else
+                    {
+                        int bloqueInicialAux = listaBloquesPosicion.get(j+1);
+                        int bloqueFinalAux = listaBloquesPosicion.get(j);
+                        ComandoApilarSobre comando = new ComandoApilarSobre(bloqueInicialAux, bloqueFinalAux);
+                        listaComandosOptimizados.add(comando);
+                    }
+                }
+            }
+        }
+        return listaComandosOptimizados;
+    }
+
+    /**
+     * Ingresa un objeto del tipo comando a la secuencia actual
+     * @param comando --el comando a ser agregado a la secuencia actual
+     */
+    public void ingresarComando(Comando comando) {
+        this.listaComandos.add(comando);
+    }
+
 }
